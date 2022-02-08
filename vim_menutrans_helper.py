@@ -1,13 +1,5 @@
-# Python program to demonstrate
-# sys.argv
-
-
-from ast import Delete
-from hashlib import new
-from operator import le
 import re
 import glob
-from xml.dom import minidom
 
 menu_item = {"me", "menu", "noreme", "noremenu", "am",
              "amenu", "an", "anoremenu", "nme", "nmenu",
@@ -21,8 +13,6 @@ menu_item = {"me", "menu", "noreme", "noremenu", "am",
 toolbar_item = {"tmenu", "tm"}
 
 # unescape double quotes
-
-
 def unescape_double_quotes(origin):
     origin = origin.replace('\\"', '"')
     origin = origin.replace("\\'", "'")
@@ -31,8 +21,6 @@ def unescape_double_quotes(origin):
     return origin
 
 # unescape single quotes
-
-
 def unescape_single_quotes(origin):
     origin = origin.replace("''", "'")
     return origin
@@ -58,7 +46,7 @@ def makeUnTranslatedDic(untranslated_file, untranslated_dict):
                         temp_word_list.append("5")
                     pre_end = ite.end()
                     temp_word_list.append(line[ite.start() + 1: ite.end() - 1])
-                
+
                 temp_line = ""
                 for word in temp_word_list:
 
@@ -131,16 +119,18 @@ def makeUnTranslatedDic(untranslated_file, untranslated_dict):
                 # conver tobe_translated_words list to string
                 for word in tobe_translated_words:
                     if len(word) > 0:
-                        untranslated_dict[word.lower()] = (line_number, untranslated_file)
+                        untranslated_dict[word.lower()] = (
+                            line_number, untranslated_file)
             elif word_list[0] in toolbar_item:
                 untranslated_dict[word_list[1].lower()] = (
                     line_number, untranslated_file)
             elif word_list[0] == "let" and (len(word_list) > 1 and word_list[1].startswith("g:menutrans_")):
-                    untranslated_dict[word_list[1].lower()] = (line_number, untranslated_file)
+                untranslated_dict[word_list[1].lower()] = (
+                    line_number, untranslated_file)
 
     # PopUp doesn't need to be translated
     untranslated_dict.pop("popup", None)
-            
+
     # blank with digit doesn't neet to be translated
     temp_untranslated_dict = {}
     for u in untranslated_dict.keys():
@@ -150,6 +140,7 @@ def makeUnTranslatedDic(untranslated_file, untranslated_dict):
     for key in temp_untranslated_dict.keys():
         if key in untranslated_dict:
             del untranslated_dict[key]
+
 
 def makeTranslatedDic(translated_file, translated_dict):
     translated_menu = {"tmenu", "menut", "menutrans", "menutranslate"}
@@ -178,12 +169,13 @@ def makeTranslatedDic(translated_file, translated_dict):
                 translated_dict[new_word_list[1].lower()] = (
                     line_number, translated_file)
             if new_word_list[0] == "let" and new_word_list[1].startswith("g:menutrans_"):
-                translated_dict[new_word_list[1].lower()] = (line_number, translated_file)
+                translated_dict[new_word_list[1].lower()] = (
+                    line_number, translated_file)
+
 
 untranslated_dict = {}
 translated_dict = {}
 makeTranslatedDic("runtime\lang\menu_zh_cn.utf-8.vim", translated_dict)
-# makeUnTranslatedDic("runtime\\autoload\\netrw.vim", untranslated_dict)
 
 # traverse runtime dictionary to get the translation difference
 for file in glob.iglob("runtime/**/*.vim", recursive=True):
@@ -194,9 +186,11 @@ for file in glob.iglob("runtime/**/*.vim", recursive=True):
 print("<------", "Words haven't been translated", "------>")
 for key in untranslated_dict.keys():
     if not key in translated_dict.keys():
-        print("line:", untranslated_dict[key][0] + 1, "path:", untranslated_dict[key][1], key)
+        print("line:", untranslated_dict[key][0] + 1,
+              "path:", untranslated_dict[key][1], key)
 
 print("<------", "Words have been deleted but still in translated list", "------>")
 for key in translated_dict.keys():
     if not key in untranslated_dict.keys():
-        print("line:", translated_dict[key][0] + 1,"path:", translated_dict[key][1], key)
+        print("line:", translated_dict[key][0] + 1,
+              "path:", translated_dict[key][1], key)
