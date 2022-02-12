@@ -2,6 +2,8 @@
 
 import re
 import glob
+import os
+import sys
 
 menu_commands = {"me", "menu", "noreme", "noremenu", "am",
              "amenu", "an", "anoremenu", "nme", "nmenu",
@@ -76,7 +78,7 @@ def makeUnTranslatedDict(untranslated_file, untranslated_dict):
                 index += 1
             # Blocks needs to be translated without being splited by '.'
             if index < len(word_list) and word_list[index] in menu_commands:
-                tobe_translated_blocks = ""
+                to_be_translated_blocks = ""
                 index += 1
                 while index < len(word_list):
                     if word_list[index] == '<silent>' or word_list[index] == '<script>' or (word_list[index][0].isdigit() and not word_list[index - 1][0].isdigit()):
@@ -84,47 +86,34 @@ def makeUnTranslatedDict(untranslated_file, untranslated_dict):
                     else:
                         # Menu_item with "ToolBar" has no following words to be translated
                         if not ("ToolBar." in word_list[index]):
-                            tobe_translated_blocks = word_list[index]
+                            to_be_translated_blocks = word_list[index]
                         break
 
                 # Remove the redundant digit added at the head and tail of the mid_part
-                if len(tobe_translated_blocks) > 0 and tobe_translated_blocks[0] == '5':
-                    tobe_translated_blocks = tobe_translated_blocks[1:]
-                if len(tobe_translated_blocks) > 0 and tobe_translated_blocks[-1] == '5':
-                    tobe_translated_blocks = tobe_translated_blocks[:-1]
+                if len(to_be_translated_blocks) > 0 and to_be_translated_blocks[0] == '5':
+                    to_be_translated_blocks = to_be_translated_blocks[1:]
+                if len(to_be_translated_blocks) > 0 and to_be_translated_blocks[-1] == '5':
+                    to_be_translated_blocks = to_be_translated_blocks[:-1]
 
                 # Menu_item with "ToolBar" constructed a tobe_translated_blocks with length equals zero
-                if len(tobe_translated_blocks) == 0:
+                if len(to_be_translated_blocks) == 0:
                     continue
 
-                # Untranslated word string splitted by "."
-                tobe_translated_word = tobe_translated_blocks.split('.')
                 # Untranslated word string splitted by "." but with escaped literal dot character"\." together
                 to_be_translated_words = []
-
-                # Fill tobe_translated_words with '\.' together words
-                pre_backlash = False
-                for word in tobe_translated_word:
-                    if len(word) != 0 and word[0] == '-':
-                        pre_backlash = False
-                        continue
-                    if pre_backlash:
-                        to_be_translated_words[-1] += '.' + word
-                    else:
+                for match in re.finditer(r"(?:\\.|[^.])+", to_be_translated_blocks):
+                    word = to_be_translated_blocks[match.start(): match.end()]
+                    if not (len(word) != 0 and word[0] == '-'):
                         to_be_translated_words.append(word)
-                    if len(word) != 0 and word[-1] == '\\':
-                        pre_backlash = True
-                    else:
-                        pre_backlash = False
 
                 # Conver tobe_translated_words list to string
                 for word in to_be_translated_words:
                     if len(word) > 0:
-                        untranslated_dict[word.lower()] = (line_number, untranslated_file)
+                        untranslated_dict[word.lower()] = (line_number, untranslated_file, word)
             elif word_list[0] in toolbar_commands:
-                untranslated_dict[word_list[1].lower()] = (line_number, untranslated_file)
+                untranslated_dict[word_list[1].lower()] = (line_number, untranslated_file, word_list[1])
             elif word_list[0] == "let" and (len(word_list) > 1 and word_list[1].startswith("g:menutrans_")):
-                untranslated_dict[word_list[1].lower()] = (line_number, untranslated_file)
+                untranslated_dict[word_list[1].lower()] = (line_number, untranslated_file, word_list[1])
 
     # PopUp doesn't need to be translated
     untranslated_dict.pop("popup", None)
@@ -145,47 +134,36 @@ def makeTranslatedDict(translated_file, translated_dict):
     # Encode with "latin1", because we don't care about the correctness of non-english character
     with open(translated_file, encoding='latin1') as f2:
         for line_number, line in enumerate(f2):
-            # List without '\blank' together per line
-            word_list = line.split()
-            if len(word_list) == 0 or word_list[0][0] == '"':
-                continue
 
-            # List with '\blank' together per line
+            # List splitted by blank but with literal blank together per line
             new_word_list = []
-            pre_backlash = False
-            for l in word_list:
-                if pre_backlash:
-                    new_word_list[-1] += " " + l
-                else:
-                    new_word_list.append(l)
-                if l[-1] == '\\':
-                    pre_backlash = True
-                else:
-                    pre_backlash = False
+            for match in re.finditer(r"(?:\\ |[^ \t])+", line):
+                word = line[match.start(): match.end()]
+                new_word_list.append(word)
 
             if new_word_list[0] in translated_menu:
                 translated_dict[new_word_list[1].lower()] = (
-                    line_number, translated_file)
+                    line_number, translated_file, new_word_list[1])
+
             if new_word_list[0] == "let" and new_word_list[1].startswith("g:menutrans_"):
                 translated_dict[new_word_list[1].lower()] = (
-                    line_number, translated_file)
-
+                    line_number, translated_file, new_word_list[1])
 
 untranslated_dict = {}
 translated_dict = {}
-makeTranslatedDict("runtime\lang\menu_zh_cn.utf-8.vim", translated_dict)
+makeTranslatedDict(sys.argv[1], translated_dict)
 
 # Traverse runtime dictionary to get the translation difference
-for file in glob.iglob("runtime/**/*.vim", recursive=True):
-    if not (file.startswith("runtime\\lang\\") or file.startswith("runtime\\keymap")):
+for file in glob.iglob(os.path.join('runtime', '**', '*.vim'), recursive=True):
+    if not (file.startswith(os.path.join("runtime", "lang")) or file.startswith(os.path.join("runtime", "keymap"))):
         makeUnTranslatedDict(file, untranslated_dict)
 
 # Compare the difference between tobe_translated_set and translated_set
 print("<------", "Words haven't been translated", "------>")
 for key in untranslated_dict.keys():
     if not key in translated_dict.keys():
-        print( untranslated_dict[key][1], ":",untranslated_dict[key][0] + 1, ":", key)
-print("<------", "Words have been deleted but still in translated list", "------>")
+        print( untranslated_dict[key][1], ":",untranslated_dict[key][0] + 1, ":", untranslated_dict[key][2])
+# print("<------", "Words have been deleted but still in translated list", "------>")
 for key in translated_dict.keys():
     if not key in untranslated_dict.keys():
-        print(translated_dict[key][1],":", translated_dict[key][0] + 1,":",  key)
+        print(translated_dict[key][1],":", translated_dict[key][0] + 1,":", translated_dict[key][2])
