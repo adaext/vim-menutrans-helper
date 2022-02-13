@@ -76,7 +76,7 @@ def makeUnTranslatedDict(untranslated_file, untranslated_dict):
 
             if word_list[0] in sil_commands:
                 index += 1
-            # Blocks needs to be translated without being splited by '.'
+            # Blocks needs to be translated without being split by '.'
             if index < len(word_list) and word_list[index] in menu_commands:
                 to_be_translated_blocks = ""
                 index += 1
@@ -99,7 +99,7 @@ def makeUnTranslatedDict(untranslated_file, untranslated_dict):
                 if len(to_be_translated_blocks) == 0:
                     continue
 
-                # Untranslated word string splitted by "." but with escaped literal dot character"\." together
+                # Untranslated word string split by "." but with escaped literal dot character"\." together
                 to_be_translated_words = []
                 for match in re.finditer(r"(?:\\.|[^.])+", to_be_translated_blocks):
                     word = to_be_translated_blocks[match.start(): match.end()]
@@ -135,7 +135,7 @@ def makeTranslatedDict(translated_file, translated_dict):
     with open(translated_file, encoding='latin1') as f2:
         for line_number, line in enumerate(f2):
 
-            # List splitted by blank but with literal blank together per line
+            # List split by blank but with literal blank together per line
             new_word_list = []
             for match in re.finditer(r"(?:\\ |[^ \t])+", line):
                 word = line[match.start(): match.end()]
@@ -149,21 +149,24 @@ def makeTranslatedDict(translated_file, translated_dict):
                 translated_dict[new_word_list[1].lower()] = (
                     line_number, translated_file, new_word_list[1])
 
-untranslated_dict = {}
-translated_dict = {}
-makeTranslatedDict(sys.argv[1], translated_dict)
+def main():
+    untranslated_dict = {}
+    translated_dict = {}
+    makeTranslatedDict(sys.argv[1], translated_dict)
 
-# Traverse runtime dictionary to get the translation difference
-for file in glob.iglob(os.path.join('runtime', '**', '*.vim'), recursive=True):
-    if not (file.startswith(os.path.join("runtime", "lang")) or file.startswith(os.path.join("runtime", "keymap"))):
-        makeUnTranslatedDict(file, untranslated_dict)
+    # Traverse runtime dictionary to get the translation difference
+    for file in glob.iglob(os.path.join('runtime', '**', '*.vim'), recursive=True):
+        if not (file.startswith(os.path.join("runtime", "lang")) or file.startswith(os.path.join("runtime", "keymap"))):
+            makeUnTranslatedDict(file, untranslated_dict)
 
-# Compare the difference between tobe_translated_set and translated_set
-print("<------", "Words haven't been translated", "------>")
-for key in untranslated_dict.keys():
-    if not key in translated_dict.keys():
-        print( untranslated_dict[key][1], ":",untranslated_dict[key][0] + 1, ":", untranslated_dict[key][2])
-# print("<------", "Words have been deleted but still in translated list", "------>")
-for key in translated_dict.keys():
-    if not key in untranslated_dict.keys():
-        print(translated_dict[key][1],":", translated_dict[key][0] + 1,":", translated_dict[key][2])
+    # Compare the difference between tobe_translated_set and translated_set
+    print("<------", "Words haven't been translated", "------>")
+    for key in untranslated_dict.keys():
+        if not key in translated_dict.keys():
+            print( untranslated_dict[key][1], ":",untranslated_dict[key][0] + 1, ":", untranslated_dict[key][2])
+    # print("<------", "Words have been deleted but still in translated list", "------>")
+    for key in translated_dict.keys():
+        if not key in untranslated_dict.keys():
+            print(translated_dict[key][1],":", translated_dict[key][0] + 1,":", translated_dict[key][2])
+if __name__ == "__main__":
+    main()
