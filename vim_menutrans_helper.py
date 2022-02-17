@@ -18,15 +18,15 @@ exe_commands = {"exe", "exec", "execute"}
 sil_commands = {"sil", "silent", "sil!", "silent!"}
 
 def unescape_double_quotes(origin):
-    """Unescape double quotes."""
+    """Unescape a string inside double quotes."""
     return (origin.replace('\\"', '"').replace("\\'", "'").replace('\\t', '\t').
     replace('\\\\', '\\'))
 
 def unescape_single_quotes(origin):
-    """Unescape single quotes."""
+    """Unescape a string inside single quotes."""
     return origin.replace("''", "'")
 
-def makeUnTranslatedDict(untranslated_file, untranslated_dict):
+def make_untranslated_dict(untranslated_file, untranslated_dict):
     """Get the diffence between untranslated file and translated file."""
     
     # Get the untranslated files' content
@@ -58,7 +58,6 @@ def makeUnTranslatedDict(untranslated_file, untranslated_dict):
 
                 temp_line = ""
                 for word in temp_word_list:
-
                     if len(word) == 0:
                         continue
                     if word[0] == "'":
@@ -152,11 +151,11 @@ def makeUnTranslatedDict(untranslated_file, untranslated_dict):
         if key in untranslated_dict:
             del untranslated_dict[key]
 
-def makeTranslatedDict(translated_file, translated_dict):
+def make_translated_dict(translated_file, translated_dict):
     translated_menu = {"tmenu", "menut", "menutrans", "menutranslate"}
     # Get the translated files' content
     # Encode with "latin1", because we don't care about the correctness of 
-    # non-english character
+    # non-ASCII character
     with open(translated_file, encoding='latin1') as f2:
         for line_number, line in enumerate(f2):
 
@@ -178,14 +177,14 @@ def makeTranslatedDict(translated_file, translated_dict):
 def main():
     untranslated_dict = {}
     translated_dict = {}
-    makeTranslatedDict(sys.argv[1], translated_dict)
+    make_translated_dict(sys.argv[1], translated_dict)
 
     # Traverse runtime dictionary to get the translation difference
     for file in glob.iglob(os.path.join('runtime', '**', '*.vim'), 
     recursive=True):
         if not (file.startswith(os.path.join("runtime", "lang")) or file.
         startswith(os.path.join("runtime", "keymap"))):
-            makeUnTranslatedDict(file, untranslated_dict)
+            make_untranslated_dict(file, untranslated_dict)
 
     # Compare the difference between tobe_translated_set and translated_set
     print("<------", "Words haven't been translated", "------>")
