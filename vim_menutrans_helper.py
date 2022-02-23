@@ -37,7 +37,6 @@ def make_untranslated_dict(untranslation_file, untranslated_dict):
             to_be_translated_words = []
 
             line = line.strip()
-
             temp_word_list = []
             pre_end = -1
             top_string = line.split()
@@ -155,8 +154,7 @@ def make_untranslated_dict(untranslation_file, untranslated_dict):
 def make_translated_dict(translation_file, translated_dict):
     """Get the translated files' content and put it into translated_dict"""
 
-    translated_menu = {"tmenu", "menut", "menutrans", "menutranslate", 
-            "NO_MENUTRANS"}
+    translated_menu = {"tmenu", "menut", "menutrans", "menutranslate"}
     # Encode with "latin1", because we don't care about the correctness of 
     # non-ASCII character
     with open(translation_file, encoding='latin1') as f2:
@@ -176,6 +174,10 @@ def make_translated_dict(translation_file, translated_dict):
                     new_word_list[1].startswith("g:menutrans_")):
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
+            if(len(new_word_list) > 2 and new_word_list[0] =='"' 
+                    and new_word_list[1] == "NO_MENUTRANS"):
+                translated_dict[new_word_list[2].lower()] = (
+                        line_number, translation_file, new_word_list[2])
 
 def usage():
     print("""Usage: vim_menutrans_helper.py <runtime_dir> <translation_file>
@@ -214,7 +216,8 @@ def work(runtime_dir, translation_file):
 def main():
     """Check whether whether argv is legal"""
 
-    if (len(sys.argv) < 3 or not os.path.isdir(sys.argv[1]) or not os.path.isfile(sys.argv[2])):
+    if (len(sys.argv) < 3 or not os.path.isdir(sys.argv[1]) or 
+            not os.path.isfile(sys.argv[2])):
         usage()
         sys.exit(1)
     runtime_dir = sys.argv[1]
