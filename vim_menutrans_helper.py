@@ -1,5 +1,19 @@
 #!/user/bin/env python3
-# Author: Ada (Haowen) Yu <me@yuhaowen.com>
+#
+# Copyright 2022 Ada (Haowen) Yu <me@yuhaowen.com>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
 import re
 import glob
@@ -39,7 +53,8 @@ TOOLIP_COMMANDS = {"tmenu", "tm"}
 EXECUTE_COMMANDS = {"cmd =", "let cmd =", "exe", "exec", "execute"}
 # Execute command silently. See ":help :silent".
 SILENT_COMMANDS = {"sil", "silent", "sil!", "silent!"}
-TRANSLATED_COMMANDS = {"tmenu", "menut", "menutrans", "menutranslate"}
+# Translate menu name to another language. See ":help :menutranslate".
+MENUTRANS_COMMANDS = {"tmenu", "menut", "menutrans", "menutranslate"}
 
 def unescape_double_quotes(origin):
     """Strip the quotes and unescape a string inside double quotes."""
@@ -207,7 +222,7 @@ def make_translated_dict(translation_file, translated_dict):
             # Split a line by white spaces but not backslash-escaped spaces.
             new_word_list = re.findall(r"(?:\\ |[^ \t])+", line)
 
-            if new_word_list[0] in TRANSLATED_COMMANDS:
+            if new_word_list[0] in MENUTRANS_COMMANDS:
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
 
