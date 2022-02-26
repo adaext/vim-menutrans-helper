@@ -1,22 +1,42 @@
 #!/user/bin/env python3
+# Author: Ada (Haowen) Yu <me@yuhaowen.com>
 
 import re
 import glob
 import os
 import sys
 
-MENU_COMMANDS = {"me", "menu", "noreme", "noremenu", "am",
-             "amenu", "an", "anoremenu", "nme", "nmenu",
-             "nnoreme", "nnoremenu", "ome", "omenu", "onoreme",
-             "onoremenu", "vme", "vmenu", "vnoreme", "vnoremenu",
-             "xme", "xmenu", "xnoreme", "xnoremenu", "sme", "smenu",
-             "snoreme", "snoremenu", "ime", "imenu", "inoreme", "inoremenu",
-             "cme", "cmenu", "cnoreme", "cnoremenu", "tlm", "tlmenu", "tln",
-             "tlnoremenu", "tunmenu", "tu", "popup", "popu"}
+MENU_COMMANDS = {
+    # Menu-related commands. See ":help creating-menus"
+
+    # Regular menu.
+    "me", "menu", "noreme", "noremenu",
+    # All modes except Terminal.
+    "am", "amenu", "an", "anoremenu",
+    # Normal mode.
+    "nme", "nmenu", "nnoreme", "nnoremenu", 
+    # Operator-pending mode.
+    "ome", "omenu", "onoreme", "onoremenu", 
+    # Visual mode. 
+    "vme", "vmenu", "vnoreme", "vnoremenu", 
+    # Visual and Select mode.
+    "xme", "xmenu", "xnoreme", "xnoremenu", 
+    # Select mode.
+    "sme", "smenu", "snoreme", "snoremenu", 
+    # Insert mode.
+    "ime", "imenu", "inoreme", "inoremenu", 
+    # Cmdline mode.
+    "cme", "cmenu", "cnoreme", "cnoremenu",
+    # Terminal mode.
+    "tlm", "tlmenu", "tln", "tlnoremenu", "tlu", 
+
+    # Popup menu definition. See ":help :popup".
+    "popup", "popu"
+}
 # Definition of tips for a menus or tools. See ":help :tmenu".
 TOOLIP_COMMANDS = {"tmenu", "tm"}
 # Execute a string as Ex command. See ":help :execute".
-EXECUTE_COMMANDS = {"exe", "exec", "execute"}
+EXECUTE_COMMANDS = {"cmd =", "let cmd =", "exe", "exec", "execute"}
 # Execute command silently. See ":help :silent".
 SILENT_COMMANDS = {"sil", "silent", "sil!", "silent!"}
 TRANSLATED_MENU = {"tmenu", "menut", "menutrans", "menutranslate"}
@@ -38,8 +58,8 @@ def extract_messages(untranslation_file, untranslated_dict):
     """Extract the messages to be translated."""
     
     # Get the untranslated files' content
-    # Encode with "latin1", because we don't care about the correctness of 
-    # non-english character
+    # Decode with "latin1", because we don't care about the correctness of 
+    # non-ASCII character
     with open(untranslation_file, encoding="latin1") as f1:
         for line_number, line in enumerate(f1):
             line = line.strip()
@@ -51,7 +71,11 @@ def extract_messages(untranslation_file, untranslated_dict):
             # Extract content from line starts with EXECUTE_COMMANDS
             pre_end = 0
             top_string = line.split()
-            if len(top_string) > 0 and top_string[0] in EXECUTE_COMMANDS:
+            if ((len(top_string) > 0 and top_string[0] in EXECUTE_COMMANDS) or 
+                    (len(top_string) >= 2 and top_string[0] == "cmd" 
+                    and top_string[1] == "=") or 
+                    (len(top_string) >= 3 and top_string[0] == "let" 
+                    and top_string[1] == "cmd" and top_string[2] == "=")):
                 unquoted_line = ""
 
                 # Extract content inside quotes from line
@@ -83,8 +107,9 @@ def extract_messages(untranslation_file, untranslated_dict):
             if len(word_list) == 0:
                 continue
             index = 0
-            # Menu_item with "disable" or enable behind MENU_COMMANDS should 
-            # be ignored. See ":help :menu-disable".
+            # Skip the whole line if the token after ":menu" command is "enable" or "disable"
+            # because such command is not a menu definition. 
+            # See ":help disable-menus" for more details.
             if (word_list[0] in MENU_COMMANDS and len(word_list) > 1 and 
                     (word_list[1] == "disable" or word_list[1] == "enable")):
                 continue
@@ -96,14 +121,20 @@ def extract_messages(untranslation_file, untranslated_dict):
                 to_be_translated_blocks = ""
                 index += 1
                 while index < len(word_list):
+                    # See ":help :menu-silent", ":help :menu-special" and 
+                    # ":help :menu-script".
                     if (word_list[index] == '<silent>' or 
+                            word_list[index] == '<special>' or 
                             word_list[index] == '<script>' or 
                             (word_list[index][0].isdigit() and 
                             not word_list[index - 1][0].isdigit())):
                         index += 1
                     else:
-                        # Menu_item with "ToolBar" has no following words to be 
-                        # translated
+                        # A menu item under "ToolBar" is not an end-user facing 
+                        # string, but just an identity to be references by 
+                        # ":tmenu" command, and will be translated by another 
+                        # ":tmenu" command. Therefore the menu item itself 
+                        # doesn't require a translation.
                         if not ("ToolBar." in word_list[index]):
                             to_be_translated_blocks = word_list[index]
                         break
@@ -120,8 +151,7 @@ def extract_messages(untranslation_file, untranslated_dict):
                 if len(to_be_translated_blocks) == 0:
                     continue
 
-                # Untranslated word string split by "." but with escaped 
-                # literal dot character"\." together
+                # Split the menu item definition by dot but backslash-escaped dot
                 to_be_translated_words = []
                 for match in re.finditer(r"(?:\\.|[^.])+", 
                         to_be_translated_blocks):
@@ -132,7 +162,6 @@ def extract_messages(untranslation_file, untranslated_dict):
                             and word[-1] == '-')):
                         to_be_translated_words.append(word)
 
-                # Conver to_be_translated_words list to string
                 for word in to_be_translated_words:
                     if len(word) > 0:
                         untranslated_dict[word.lower()] = (line_number, 
@@ -140,12 +169,17 @@ def extract_messages(untranslation_file, untranslated_dict):
             elif word_list[0] in TOOLIP_COMMANDS:
                 untranslated_dict[word_list[1].lower()] = (line_number, 
                         untranslation_file, word_list[1])
+            elif word_list[0].startswith("g:menutrans_"):
+                untranslated_dict[word_list[0].lower()] = (line_number, 
+                        untranslation_file, word_list[0])
             elif word_list[0] == "let" and (len(word_list) > 1 and 
                     word_list[1].startswith("g:menutrans_")):
                 untranslated_dict[word_list[1].lower()] = (line_number, 
                         untranslation_file, word_list[1])
 
-    # PopUp doesn't need to be translated
+    # "PopUp" is used to define popup menus. The sub menu items under "PopUp" 
+    # need to be translated. But "PopUp" itself is just a placeholder string. 
+    # It doesn't need translation.
     untranslated_dict.pop("popup", None)
 
     # String starting and ending with '\ 'or String contains only single digit 
@@ -166,11 +200,11 @@ def make_translated_dict(translation_file, translated_dict):
     """Get the translated files' content and put it into translated_dict"""
 
     # Encode with "latin1", because we don't care about the correctness of 
-    # non-ASCII character
+    # non-ASCII character.
     with open(translation_file, encoding='latin1') as f2:
         for line_number, line in enumerate(f2):
 
-            # List split by blank but with literal blank together per line
+            # Split a line by white spaces but not backslash-escaped spaces.
             new_word_list = re.findall(r"(?:\\ |[^ \t])+", line)
 
             if new_word_list[0] in TRANSLATED_MENU:
@@ -182,6 +216,10 @@ def make_translated_dict(translation_file, translated_dict):
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
             
+            if  new_word_list[0].startswith("g:menutrans_"):
+                translated_dict[new_word_list[0].lower()] = (
+                        line_number, translation_file, new_word_list[0])
+
             if new_word_list[0] == '"NO_MENUTRANS':
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
@@ -193,13 +231,16 @@ def make_translated_dict(translation_file, translated_dict):
 
 def usage():
     print("""Usage: vim_menutrans_helper.py <runtime_dir> <translation_file>
-            runtime_dir:the path of Vim runtime directory. 
-            See ':help $VIMRUNTIME' for more details.
-            translation_file: the menu translation file to parse, 
-            typically under $VIMRUNTIME/lang directory.""")
 
-def work(runtime_dir, translation_file):
-    """Scan runtime dictionary and get the illegal result"""
+    runtime_dir:      the path of Vim runtime directory. See ":help $VIMRUNTIME"
+                      for more details.
+    translation_file: the menu translation file to parse, typically under
+                      "$VIMRUNTIME/lang" directory.
+""")
+
+def verify_menutrans(runtime_dir, translation_file):
+    """Scan runtime dictionary and get newly added messages and 
+    deprecated (removed) messages."""
 
     untranslated_dict = {}
     translated_dict = {}
@@ -213,14 +254,14 @@ def work(runtime_dir, translation_file):
             extract_messages(file, untranslated_dict)
 
     # Compare the difference between to_be_translated_set and translated_set
-    print("<------", "Untranslated messages", "------>")
+    print("Untranslated messages:")
     for key in untranslated_dict.keys():
         if not key in translated_dict.keys():
             print(untranslated_dict[key][1] + ":" +  
                     str(untranslated_dict[key][0] + 1) + 
                     ":" + untranslated_dict[key][2])
 
-    print("<------", "Deleted but still translated messages", "------>")
+    print("Deleted messages:")
     for key in translated_dict.keys():
         if not key in untranslated_dict.keys():
             print(translated_dict[key][1] + ":" + 
@@ -232,9 +273,8 @@ def main():
             not os.path.isfile(sys.argv[2])):
         usage()
         sys.exit(1)
-    runtime_dir = sys.argv[1]
-    translation_file = sys.argv[2]
-    work(runtime_dir, translation_file)
+
+    verify_menutrans(sys.argv[1], sys.argv[2])
 
 if __name__ == "__main__":
     main()
