@@ -274,14 +274,14 @@ def verify_menutrans(runtime_dir, translation_file):
         if not key in translated_dict.keys():
             print(untranslated_dict[key][1] + ":" +  
                     str(untranslated_dict[key][0] + 1) + 
-                    ":" + untranslated_dict[key][2])
+                    ": " + untranslated_dict[key][2])
 
     print("Deleted messages:")
     for key in translated_dict.keys():
         if not key in untranslated_dict.keys():
             print(translated_dict[key][1] + ":" + 
                 str(translated_dict[key][0] + 1) + 
-                ":" + translated_dict[key][2])
+                ": " + translated_dict[key][2])
 
 def main():
     if (not len(sys.argv) == 3 or not os.path.isdir(sys.argv[1]) or 
