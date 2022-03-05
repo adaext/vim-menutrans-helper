@@ -218,29 +218,29 @@ def make_translated_dict(translation_file, translated_dict):
     # non-ASCII character.
     with open(translation_file, encoding='latin1') as f2:
         for line_number, line in enumerate(f2):
+            line = line.strip()
+
+            if not line:
+                continue
 
             # Split a line by white spaces but not backslash-escaped spaces.
             new_word_list = re.findall(r"(?:\\ |[^ \t])+", line)
 
-            if new_word_list[0] in MENUTRANS_COMMANDS:
+            if len(new_word_list) > 1 and new_word_list[0] in MENUTRANS_COMMANDS:
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
-
-            if (new_word_list[0] == "let" and 
+            elif (len(new_word_list) > 1 and new_word_list[0] == "let" and 
                     new_word_list[1].startswith("g:menutrans_")):
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
-            
-            if  new_word_list[0].startswith("g:menutrans_"):
+            elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
                 translated_dict[new_word_list[0].lower()] = (
                         line_number, translation_file, new_word_list[0])
-
-            if new_word_list[0] == '"NO_MENUTRANS':
+            elif len(new_word_list) > 1 and new_word_list[0] == '"NOMENUTRANS':
                 translated_dict[new_word_list[1].lower()] = (
                         line_number, translation_file, new_word_list[1])
-
-            if (len(new_word_list) > 2 and new_word_list[0] =='"' 
-                    and new_word_list[1] == "NO_MENUTRANS"):
+            elif (len(new_word_list) > 2 and new_word_list[0] =='"' 
+                    and new_word_list[1] == "NOMENUTRANS"):
                 translated_dict[new_word_list[2].lower()] = (
                         line_number, translation_file, new_word_list[2])
 
