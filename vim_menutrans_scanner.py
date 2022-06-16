@@ -236,13 +236,6 @@ def make_translated_dict(translation_file, translated_dict):
             elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
                 translated_dict[new_word_list[0].lower()] = (
                         line_number, translation_file, new_word_list[0])
-            elif len(new_word_list) > 1 and new_word_list[0] == '"NOMENUTRANS':
-                translated_dict[new_word_list[1].lower()] = (
-                        line_number, translation_file, new_word_list[1])
-            elif (len(new_word_list) > 2 and new_word_list[0] =='"' 
-                    and new_word_list[1] == "NOMENUTRANS"):
-                translated_dict[new_word_list[2].lower()] = (
-                        line_number, translation_file, new_word_list[2])
 
 def usage():
     print("""Usage: vim_menutrans_helper.py <runtime_dir> <translation_file>
