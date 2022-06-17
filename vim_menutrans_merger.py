@@ -26,7 +26,7 @@ def make_translated_dict(translation_file, translated_dict):
             elif (len(new_word_list) > 1 and new_word_list[0] == "let" and 
                     new_word_list[1].startswith("g:menutrans_")):
                 translated_dict[new_word_list[1].lower()] = (
-                        line_number, translation_file, new_word_list[1], new_word_list[2])
+                        line_number, translation_file, new_word_list[1], line[line.find('=') + 2:])
             elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
                 translated_dict[new_word_list[0].lower()] = (
                         line_number, translation_file, new_word_list[0], new_word_list[2])
