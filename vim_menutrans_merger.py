@@ -19,18 +19,18 @@ def make_translated_dict(translation_file, translated_dict):
 
             # Split a line by white spaces but not backslash-escaped spaces.
             new_word_list = re.findall(r"(?:\\ |[^ \t])+", line)
-
+            match_index = [each for each in re.finditer(r"(?:\\ |[^ \t])+", line)]
+            
             if len(new_word_list) > 1 and new_word_list[0] in MENUTRANS_COMMANDS:
                 translated_dict[new_word_list[1].lower()] = (
-                        line_number, translation_file, new_word_list[1], new_word_list[2])
+                        line_number, translation_file, new_word_list[1], line[match_index[1].end():])
+            elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
+                translated_dict[new_word_list[0].lower()] = (
+                        line_number, translation_file, new_word_list[0], line[match_index[0].end():])
             elif (len(new_word_list) > 1 and new_word_list[0] == "let" and 
                     new_word_list[1].startswith("g:menutrans_")):
                 translated_dict[new_word_list[1].lower()] = (
-                        line_number, translation_file, new_word_list[1], line[line.find('=') + 2:])
-            elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
-                translated_dict[new_word_list[0].lower()] = (
-                        line_number, translation_file, new_word_list[0], new_word_list[2])
-        f.close()
+                        line_number, translation_file, new_word_list[1], line[match_index[2].end():])
 
 def extract_translated_message(template_file, translation_file):
     """Get the translated files' content and put it into translated_dict"""
@@ -42,42 +42,46 @@ def extract_translated_message(template_file, translation_file):
 def replace_template_translation(template_file, translated_dict):
     """Replace the translations in template_file with the content in translated_dict"""
 
+    newContent = ""
     # Encode with "latin1", because we don't care about the correctness of 
     # non-ASCII character.
     with open(template_file, encoding='UTF-8') as f:
         for line_number, line in enumerate(f):
             line = line.strip()
             if not line:
-                print("\n")
+                newContent += "\n"
                 continue
 
             # Split a line by white spaces but not backslash-escaped spaces.
             new_word_list = re.findall(r"(?:\\ |[^ \t])+", line)
+            match_index = [each for each in re.finditer(r"(?:\\ |[^ \t])+", line)]
             hasTranslated = True
             
             if len(new_word_list) > 1 and new_word_list[0] in MENUTRANS_COMMANDS:
                 if (new_word_list[1].lower() in translated_dict):
-                    new_word_list[2] = translated_dict[new_word_list[1].lower()][3]
-                    line = ' '.join(new_word_list)
+                    line = line[:match_index[1].end() + 1] + translated_dict[new_word_list[1].lower()][3]
                 else:
                     hasTranslated = False
             elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
                 if (new_word_list[0].lower() in translated_dict):
-                    new_word_list[2] = translated_dict[new_word_list[1].lower()][3]
-                    line = ' '.join(new_word_list)
+                    line = line[:match_index[0].end() + 1] + translated_dict[new_word_list[0].lower()][3]
                 else:
                     hasTranslated = False
             elif (len(new_word_list) > 1 and new_word_list[0] == "let" and 
                     new_word_list[1].startswith("g:menutrans_")):
                 if (new_word_list[1].lower() in translated_dict):
-                    line = line[:line.find('=') + 2] + translated_dict[new_word_list[1].lower()][3]
+                    line = line[:match_index[2].end() + 1] + translated_dict[new_word_list[1].lower()][3]
                 else:
                     hasTranslated = False
             
             if not hasTranslated:
                 line = '" ' + line
-            print(str(line_number + 1) + " " + line)
-        f.close()
+
+            newContent += str(line_number + 1) + line
+            newContent += "\n"
+
+    with open("test.vim", mode="w", encoding="UTF-8") as f:
+        f.write(newContent)
 
 def usage():
     print("""Usage: vim_menutrans_helper.py <template_file> <translation_file>
