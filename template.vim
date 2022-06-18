@@ -62,11 +62,11 @@ menutrans &Global\ Settings	TRANSLATION\ MISSING
 menutrans F&ile\ Settings	TRANSLATION\ MISSING
 menutrans Toggle\ Line\ &Numbering<Tab>:set\ nu!	TRANSLATION\ MISSING
 menutrans Toggle\ &List\ Mode<Tab>:set\ list!	TRANSLATION\ MISSING
-" menutrans Toggle\ Line\ &Wrap<Tab>:set\ wrap!		Режим\ &переносу<Tab>:set\ wrap!
-" menutrans Toggle\ W&rap\ at\ word<Tab>:set\ lbr!	Переносити\ усе\ &слово<Tab>:set\ lbr!
-" menutrans Toggle\ &expand-tab<Tab>:set\ et!			Користуватися\ символом\ &табуляції<Tab>:set\ et!
-" menutrans Toggle\ &auto-indent<Tab>:set\ ai!		Автоматичний\ &відступ<Tab>:set\ ai!
-" menutrans Toggle\ &C-indenting<Tab>:set\ cin!		Відступи\ для\ мови\ &C<Tab>:set\ cin!
+menutrans Toggle\ Line\ &Wrap<Tab>:set\ wrap!	TRANSLATION\ MISSING
+menutrans Toggle\ W&rap\ at\ word<Tab>:set\ lbr!	TRANSLATION\ MISSING
+menutrans Toggle\ &expand-tab<Tab>:set\ et!	TRANSLATION\ MISSING
+menutrans Toggle\ &auto-indent<Tab>:set\ ai!	TRANSLATION\ MISSING
+menutrans Toggle\ &C-indenting<Tab>:set\ cin!	TRANSLATION\ MISSING
 menutrans &Shiftwidth	TRANSLATION\ MISSING
 menutrans Te&xt\ Width\.\.\.	TRANSLATION\ MISSING
 menutrans &File\ Format\.\.\.	TRANSLATION\ MISSING
@@ -77,8 +77,8 @@ menutrans Select\ Fo&nt\.\.\.	TRANSLATION\ MISSING
 
 menutrans &Keymap	TRANSLATION\ MISSING
 menutrans Toggle\ Pattern\ &Highlight<Tab>:set\ hls!	TRANSLATION\ MISSING
-" menutrans Toggle\ &Ignore-case<Tab>:set\ ic!		&Розрізняти\ \великі\ та\ малі\ літери<Tab>:set\ ic!
-" menutrans Toggle\ &Showmatch<Tab>:set\ sm!		&Негайний\ пошук<Tab>:set\ sm!
+menutrans Toggle\ &Ignore-case<Tab>:set\ ic!	TRANSLATION\ MISSING
+menutrans Toggle\ &Showmatch<Tab>:set\ sm!	TRANSLATION\ MISSING
 menutrans &Context\ lines	TRANSLATION\ MISSING
 menutrans &Virtual\ Edit	TRANSLATION\ MISSING
 
@@ -118,7 +118,7 @@ menutrans O&pen\ more\ folds<Tab>zr	TRANSLATION\ MISSING
 menutrans Create\ &Fold<Tab>zf	TRANSLATION\ MISSING
 menutrans &Delete\ Fold<Tab>zd	TRANSLATION\ MISSING
 menutrans Delete\ &All\ Folds<Tab>zD	TRANSLATION\ MISSING
-" menutrans Fold\ column\ &width				&Товщина\ рядка\ згортків
+menutrans Fold\ column\ &width	TRANSLATION\ MISSING
 menutrans Fold\ Met&hod	TRANSLATION\ MISSING
 menutrans M&anual	TRANSLATION\ MISSING
 menutrans I&ndent	TRANSLATION\ MISSING
@@ -145,18 +145,18 @@ menutrans &Update<Tab>:cwin	TRANSLATION\ MISSING
 menutrans &Close<Tab>:cclose	TRANSLATION\ MISSING
 menutrans &Open<Tab>:copen	TRANSLATION\ MISSING
 
-" menutrans &Set\ Compiler				Встановити\ &компілятор
+menutrans &Set\ Compiler	TRANSLATION\ MISSING
 menutrans &Convert\ to\ HEX<Tab>:%!xxd TRANSLATION\ MISSING
 menutrans Conve&rt\ back<Tab>:%!xxd\ -r TRANSLATION\ MISSING
 
 " Names for buffer menu.
 menutrans &Buffers	TRANSLATION\ MISSING
 menutrans &Refresh\ menu TRANSLATION\ MISSING
-" menutrans Delete	&Видалити
+menutrans Delete	TRANSLATION\ MISSING
 menutrans &Alternate	TRANSLATION\ MISSING
 menutrans &Next	TRANSLATION\ MISSING
 menutrans &Previous	TRANSLATION\ MISSING
-" menutrans [No\ File]	[Немає\ Файла]
+menutrans [No\ File]	TRANSLATION\ MISSING
 
 " Window menu
 menutrans &Window	TRANSLATION\ MISSING
@@ -169,8 +169,8 @@ menutrans Split\ File\ E&xplorer	TRANSLATION\ MISSING
 
 menutrans &Close<Tab>^Wc	TRANSLATION\ MISSING
 menutrans Close\ &Other(s)<Tab>^Wo	TRANSLATION\ MISSING
-" menutrans Ne&xt<Tab>^Ww			&Наступне<Tab>^Ww
-" menutrans P&revious<Tab>^WW		&Попереднє<Tab>^WW
+menutrans Ne&xt<Tab>^Ww	TRANSLATION\ MISSING
+menutrans P&revious<Tab>^WW	TRANSLATION\ MISSING
 menutrans &Equal\ Size<Tab>^W=	TRANSLATION\ MISSING
 menutrans &Max\ Height<Tab>^W_	TRANSLATION\ MISSING
 menutrans M&in\ Height<Tab>^W1_	TRANSLATION\ MISSING
@@ -212,7 +212,7 @@ tmenu ToolBar.Redo	TRANSLATION MISSING
 tmenu ToolBar.Cut	TRANSLATION MISSING
 tmenu ToolBar.Copy	TRANSLATION MISSING
 tmenu ToolBar.Paste	TRANSLATION MISSING
-" tmenu ToolBar.Find		Знайти...
+tmenu ToolBar.Find	TRANSLATION MISSING
 tmenu ToolBar.FindNext	TRANSLATION MISSING
 tmenu ToolBar.FindPrev	TRANSLATION MISSING
 tmenu ToolBar.Replace	TRANSLATION MISSING
@@ -220,7 +220,7 @@ tmenu ToolBar.LoadSesn	TRANSLATION MISSING
 tmenu ToolBar.SaveSesn	TRANSLATION MISSING
 tmenu ToolBar.RunScript	TRANSLATION MISSING
 tmenu ToolBar.Make	TRANSLATION MISSING
-" tmenu ToolBar.Shell		Shell
+tmenu ToolBar.Shell	TRANSLATION MISSING
 tmenu ToolBar.RunCtags	TRANSLATION MISSING
 tmenu ToolBar.TagJump	TRANSLATION MISSING
 tmenu ToolBar.Help	TRANSLATION MISSING
