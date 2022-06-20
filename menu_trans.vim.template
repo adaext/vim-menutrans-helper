@@ -1,10 +1,13 @@
-" Menu Translations:    Simplified Chinese
-" Maintainer:           Shun Bai <baishunde@gmail.com>
-" Previous Maintainer:  Yuheng Xie <elephant@linux.net.cn>
-" Last Change:          2022 Feb 19
+" Maintainer:           Ada (Haowen) Yu <me@yuhaowen.com>
+" Previous Maintainer:  Shun Bai <baishunde@gmail.com>
+" Last Change:          2022 Jun 20
 " Original translations
-
+" This template file is created with the tool in
+"
+"       https://github.com/adaext/vim-menutrans-helper
+" The toolbar translation files in Vim will be based on this template file
 " Quit when menu translations have already been done.
+
 if exists("did_menu_trans")
 finish
 endif
@@ -68,6 +71,7 @@ menutrans &Find\.\.\.	TRANSLATION\ MISSING
 menutrans Find\ and\ Rep&lace\.\.\.	TRANSLATION\ MISSING
 menutrans &Find<Tab>/	TRANSLATION\ MISSING
 menutrans Find\ and\ Rep&lace<Tab>:%s	TRANSLATION\ MISSING
+menutrans Find\ and\ Rep&lace<Tab>:s TRANSLATION\ MISSING
 menutrans Settings\ &Window	TRANSLATION\ MISSING
 menutrans Startup\ &Settings	TRANSLATION\ MISSING
 
@@ -142,6 +146,7 @@ endif
 " }}}
 menutrans Show\ C&olor\ Schemes\ in\ Menu	TRANSLATION\ MISSING
 menutrans C&olor\ Scheme	TRANSLATION\ MISSING
+menutrans None TRANSLATION\ MISSING
 menutrans Show\ &Keymaps\ in\ Menu	TRANSLATION\ MISSING
 menutrans &Keymap	TRANSLATION\ MISSING
 menutrans Select\ Fo&nt\.\.\.	TRANSLATION\ MISSING
@@ -235,6 +240,7 @@ menutrans Conve&rt\ Back<Tab>:%!xxd\ -r	TRANSLATION\ MISSING
 
 " Buffer menu
 menutrans &Buffers	TRANSLATION\ MISSING
+menutrans Dummy TRANSLATION\ MISSING
 " Buffer menuitems and dialog {{{1
 menutrans &Refresh\ Menu	TRANSLATION\ MISSING
 menutrans &Delete	TRANSLATION\ MISSING
@@ -342,6 +348,7 @@ menutrans On/Off\ for\ &This\ File	TRANSLATION\ MISSING
 menutrans Co&lor\ Test	TRANSLATION\ MISSING
 menutrans &Highlight\ Test	TRANSLATION\ MISSING
 menutrans &Convert\ to\ HTML	TRANSLATION\ MISSING
+
 " From synmenu.vim
 menutrans Set\ '&syntax'\ Only	TRANSLATION\ MISSING
 menutrans Set\ '&filetype'\ Too	TRANSLATION\ MISSING
@@ -1185,14 +1192,6 @@ menutrans Exit\ after\ reading\ and\ executing\ one\ command TRANSLATION\ MISSIN
 menutrans Treat\ unset\ variables\ as\ an\ error\ when\ substituting TRANSLATION\ MISSING
 menutrans Print\ shell\ input\ lines\ as\ they\ are\ read TRANSLATION\ MISSING
 menutrans Print\ commands\ and\ their\ arguments\ as\ they\ are\ executed TRANSLATION\ MISSING
-" }}}
-
-" menu menu
-" menu menuitems {{{1
-" From menu.vim
-menutrans Find\ and\ Rep&lace<Tab>:s TRANSLATION\ MISSING
-menutrans None TRANSLATION\ MISSING
-menutrans Dummy TRANSLATION\ MISSING
 " }}}
 
 " termdebug menu
