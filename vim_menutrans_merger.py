@@ -11,7 +11,7 @@ def make_translated_dict(translation_file, translated_dict):
     # Encode with "latin1", because we don't care about the correctness of 
     # non-ASCII character.
     with open(translation_file, encoding='latin1') as f:
-        for line_number, line in enumerate(f):
+        for line in f:
             line = line.strip()
 
             if not line:
@@ -22,18 +22,15 @@ def make_translated_dict(translation_file, translated_dict):
             match_index = [each for each in re.finditer(r"(?:\\ |[^ \t])+", line)]
             
             if len(new_word_list) > 1 and new_word_list[0] in MENUTRANS_COMMANDS:
-                translated_dict[new_word_list[1].lower()] = (
-                        line_number, translation_file, new_word_list[1], 
-                        line[match_index[1].end():])
+                translated_dict[new_word_list[1].lower()] = (translation_file, 
+                        new_word_list[1], line[match_index[1].end():])
             elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
-                translated_dict[new_word_list[0].lower()] = (
-                        line_number, translation_file, new_word_list[0], 
-                        line[match_index[0].end():])
+                translated_dict[new_word_list[0].lower()] = (translation_file, 
+                        new_word_list[0], line[match_index[0].end():])
             elif (len(new_word_list) > 1 and new_word_list[0] == "let" and 
                     new_word_list[1].startswith("g:menutrans_")):
-                translated_dict[new_word_list[1].lower()] = (
-                        line_number, translation_file, new_word_list[1], 
-                        line[match_index[2].end():])
+                translated_dict[new_word_list[1].lower()] = (translation_file, 
+                        new_word_list[1], line[match_index[2].end():])
 
 def extract_translated_message(template_file, translation_file):
     """Get the translated files' content and put it into translated_dict"""
@@ -49,7 +46,7 @@ def replace_template_translation(template_file, translated_dict):
     # Encode with "latin1", because we don't care about the correctness of 
     # non-ASCII character.
     with open(template_file, encoding='latin1') as f:
-        for line_number, line in enumerate(f):
+        for line in f:
             line = line.strip()
             if not line:
                 new_content += "\n"
@@ -62,28 +59,28 @@ def replace_template_translation(template_file, translated_dict):
             
             if len(new_word_list) > 1 and new_word_list[0] in MENUTRANS_COMMANDS:
                 if (new_word_list[1].lower() in translated_dict):
-                    line = line[:match_index[1].end() + 1] 
-                    + translated_dict[new_word_list[1].lower()][3]
+                    line = line[:match_index[1].end() + 1] + translated_dict[
+                            new_word_list[1].lower()][2]
                 else:
                     has_translated = False
             elif len(new_word_list) > 1 and new_word_list[0].startswith("g:menutrans_"):
                 if (new_word_list[0].lower() in translated_dict):
                     line = line[:match_index[0].end() + 1] 
-                    + translated_dict[new_word_list[0].lower()][3]
+                    + translated_dict[new_word_list[0].lower()][2]
                 else:
                     has_translated = False
             elif (len(new_word_list) > 1 and new_word_list[0] == "let" and 
                     new_word_list[1].startswith("g:menutrans_")):
                 if (new_word_list[1].lower() in translated_dict):
-                    line = line[:match_index[2].end() + 1] 
-                    + translated_dict[new_word_list[1].lower()][3]
+                    line = line[:match_index[2].end() + 1] + translated_dict[
+                            new_word_list[1].lower()][2]
                 else:
                     has_translated = False
             
             if not has_translated:
                 line = '" ' + line
 
-            new_content += str(line_number) + line
+            new_content += line
             new_content += "\n"
 
     with open(template_file, mode="w", encoding="latin1") as f:
