@@ -37,9 +37,9 @@ def extract_translated_message(template_file, translation_file):
 
     translated_dict = {}
     make_translated_dict(translation_file, translated_dict)
-    replace_template_translation(template_file, translated_dict)
+    replace_template_translation(template_file, translation_file, translated_dict)
 
-def replace_template_translation(template_file, translated_dict):
+def replace_template_translation(template_file, translation_file, translated_dict):
     """Replace the translations in template_file with the content in translated_dict"""
 
     new_content = ""
@@ -83,7 +83,7 @@ def replace_template_translation(template_file, translated_dict):
             new_content += line
             new_content += "\n"
 
-    with open(template_file, mode="w", encoding="latin1") as f:
+    with open(translation_file, mode="w", encoding="latin1") as f:
         f.write(new_content)
 
 def usage():
