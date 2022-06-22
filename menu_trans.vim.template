@@ -1248,6 +1248,31 @@ menutrans U&nfinalise TRANSLATION\ MISSING
 menutrans &Finalise TRANSLATION\ MISSING
 " }}}
 
+" ada menu
+" ada menuitems {{{1
+" From ada.vim
+menutrans Tag TRANSLATION\ MISSING
+menutrans List TRANSLATION\ MISSING
+menutrans Jump TRANSLATION\ MISSING
+menutrans Create\ File TRANSLATION\ MISSING
+menutrans Create\ Dir TRANSLATION\ MISSING
+menutrans Highlight TRANSLATION\ MISSING
+menutrans Toggle\ Space\ Errors TRANSLATION\ MISSING
+menutrans Toggle\ Lines\ Errors TRANSLATION\ MISSING
+menutrans Toggle\ Rainbow\ Color TRANSLATION\ MISSING
+menutrans Toggle\ Standard\ Types TRANSLATION\ MISSING
+" }}}
+
+" gnat menu
+" gnat menuitems {{{1
+" From gnat.vim
+menutrans GNAT TRANSLATION\ MISSING
+menutrans Build TRANSLATION\ MISSING
+menutrans Pretty\ Print TRANSLATION\ MISSING
+menutrans Find TRANSLATION\ MISSING
+menutrans Set\ Projectfile\.\.\. TRANSLATION\ MISSING
+" }}}
+
 let &cpo = s:keepcpo
 unlet s:keepcpo
 
