@@ -1,5 +1,4 @@
 " Maintainer:           Ada (Haowen) Yu <me@yuhaowen.com>
-" Previous Maintainer:  Shun Bai <baishunde@gmail.com>, Yuheng Xie elephant@linux.net.cn
 " Last Change:          2022 Jun 22
 " Original translations
 "
@@ -19,18 +18,18 @@ set cpo&vim
 scriptencoding utf-8
 
 " Help menu
-menutrans &Help	TRANSLATION\ MISSING
+menutrans &Help TRANSLATION\ MISSING
 " Help menuitems and dialog {{{1
-menutrans &Overview<Tab><F1>	TRANSLATION\ MISSING
-menutrans &User\ Manual	TRANSLATION\ MISSING
-menutrans &How-to\ Links	TRANSLATION\ MISSING
-menutrans &Find\.\.\.	TRANSLATION\ MISSING
-menutrans &Credits	TRANSLATION\ MISSING
-menutrans Co&pying	TRANSLATION\ MISSING
-menutrans &Sponsor/Register	TRANSLATION\ MISSING
-menutrans O&rphans	TRANSLATION\ MISSING
-menutrans &Version	TRANSLATION\ MISSING
-menutrans &About	TRANSLATION\ MISSING
+menutrans &Overview<Tab><F1> TRANSLATION\ MISSING
+menutrans &User\ Manual TRANSLATION\ MISSING
+menutrans &How-to\ Links TRANSLATION\ MISSING
+menutrans &Find\.\.\. TRANSLATION\ MISSING
+menutrans &Credits TRANSLATION\ MISSING
+menutrans Co&pying TRANSLATION\ MISSING
+menutrans &Sponsor/Register TRANSLATION\ MISSING
+menutrans O&rphans TRANSLATION\ MISSING
+menutrans &Version TRANSLATION\ MISSING
+menutrans &About TRANSLATION\ MISSING
 
 " fun! s:Helpfind()
 if !exists("g:menutrans_help_dialog")
@@ -39,68 +38,68 @@ endif
 " }}}
 
 " File menu
-menutrans &File	TRANSLATION\ MISSING
+menutrans &File TRANSLATION\ MISSING
 " File menuitems {{{1
-menutrans &Open\.\.\.<Tab>:e	TRANSLATION\ MISSING
-menutrans Sp&lit-Open\.\.\.<Tab>:sp	TRANSLATION\ MISSING
-menutrans Open\ Tab\.\.\.<Tab>:tabnew	TRANSLATION\ MISSING
-menutrans &New<Tab>:enew	TRANSLATION\ MISSING
-menutrans &Close<Tab>:close	TRANSLATION\ MISSING
-menutrans &Save<Tab>:w	TRANSLATION\ MISSING
-menutrans Save\ &As\.\.\.<Tab>:sav	TRANSLATION\ MISSING
-menutrans Split\ &Diff\ With\.\.\.	TRANSLATION\ MISSING
-menutrans Split\ Patched\ &By\.\.\.	TRANSLATION\ MISSING
-menutrans &Print	TRANSLATION\ MISSING
-menutrans Sa&ve-Exit<Tab>:wqa	TRANSLATION\ MISSING
-menutrans E&xit<Tab>:qa	TRANSLATION\ MISSING
+menutrans &Open\.\.\.<Tab>:e TRANSLATION\ MISSING
+menutrans Sp&lit-Open\.\.\.<Tab>:sp TRANSLATION\ MISSING
+menutrans Open\ Tab\.\.\.<Tab>:tabnew TRANSLATION\ MISSING
+menutrans &New<Tab>:enew TRANSLATION\ MISSING
+menutrans &Close<Tab>:close TRANSLATION\ MISSING
+menutrans &Save<Tab>:w TRANSLATION\ MISSING
+menutrans Save\ &As\.\.\.<Tab>:sav TRANSLATION\ MISSING
+menutrans Split\ &Diff\ With\.\.\. TRANSLATION\ MISSING
+menutrans Split\ Patched\ &By\.\.\. TRANSLATION\ MISSING
+menutrans &Print TRANSLATION\ MISSING
+menutrans Sa&ve-Exit<Tab>:wqa TRANSLATION\ MISSING
+menutrans E&xit<Tab>:qa TRANSLATION\ MISSING
 " }}}
 
 " Edit menu
-menutrans &Edit	TRANSLATION\ MISSING
+menutrans &Edit TRANSLATION\ MISSING
 " Edit menuitems {{{1
-menutrans &Undo<Tab>u	TRANSLATION\ MISSING
-menutrans &Redo<Tab>^R	TRANSLATION\ MISSING
-menutrans Rep&eat<Tab>\.	TRANSLATION\ MISSING
-menutrans Cu&t<Tab>"+x	TRANSLATION\ MISSING
-menutrans &Copy<Tab>"+y	TRANSLATION\ MISSING
-menutrans &Paste<Tab>"+gP	TRANSLATION\ MISSING
-menutrans Put\ &Before<Tab>[p	TRANSLATION\ MISSING
-menutrans Put\ &After<Tab>]p	TRANSLATION\ MISSING
-menutrans &Delete<Tab>x	TRANSLATION\ MISSING
-menutrans &Select\ All<Tab>ggVG	TRANSLATION\ MISSING
-menutrans &Find\.\.\.	TRANSLATION\ MISSING
-menutrans Find\ and\ Rep&lace\.\.\.	TRANSLATION\ MISSING
-menutrans &Find<Tab>/	TRANSLATION\ MISSING
-menutrans Find\ and\ Rep&lace<Tab>:%s	TRANSLATION\ MISSING
+menutrans &Undo<Tab>u TRANSLATION\ MISSING
+menutrans &Redo<Tab>^R TRANSLATION\ MISSING
+menutrans Rep&eat<Tab>\. TRANSLATION\ MISSING
+menutrans Cu&t<Tab>"+x TRANSLATION\ MISSING
+menutrans &Copy<Tab>"+y TRANSLATION\ MISSING
+menutrans &Paste<Tab>"+gP TRANSLATION\ MISSING
+menutrans Put\ &Before<Tab>[p TRANSLATION\ MISSING
+menutrans Put\ &After<Tab>]p TRANSLATION\ MISSING
+menutrans &Delete<Tab>x TRANSLATION\ MISSING
+menutrans &Select\ All<Tab>ggVG TRANSLATION\ MISSING
+menutrans &Find\.\.\. TRANSLATION\ MISSING
+menutrans Find\ and\ Rep&lace\.\.\. TRANSLATION\ MISSING
+menutrans &Find<Tab>/ TRANSLATION\ MISSING
+menutrans Find\ and\ Rep&lace<Tab>:%s TRANSLATION\ MISSING
 menutrans Find\ and\ Rep&lace<Tab>:s TRANSLATION\ MISSING
-menutrans Settings\ &Window	TRANSLATION\ MISSING
-menutrans Startup\ &Settings	TRANSLATION\ MISSING
+menutrans Settings\ &Window TRANSLATION\ MISSING
+menutrans Startup\ &Settings TRANSLATION\ MISSING
 
 " Edit/Global Settings
-menutrans &Global\ Settings	TRANSLATION\ MISSING
+menutrans &Global\ Settings TRANSLATION\ MISSING
 " Edit.Global Settings menuitems and dialogs {{{2
-menutrans Toggle\ Pattern\ &Highlight<Tab>:set\ hls!	TRANSLATION\ MISSING
-menutrans Toggle\ &Ignoring\ Case<Tab>:set\ ic!	TRANSLATION\ MISSING
-menutrans Toggle\ &Showing\ Matched\ Pairs<Tab>:set\ sm!	TRANSLATION\ MISSING
-menutrans &Context\ Lines	TRANSLATION\ MISSING
-menutrans &Virtual\ Edit	TRANSLATION\ MISSING
+menutrans Toggle\ Pattern\ &Highlight<Tab>:set\ hls! TRANSLATION\ MISSING
+menutrans Toggle\ &Ignoring\ Case<Tab>:set\ ic! TRANSLATION\ MISSING
+menutrans Toggle\ &Showing\ Matched\ Pairs<Tab>:set\ sm! TRANSLATION\ MISSING
+menutrans &Context\ Lines TRANSLATION\ MISSING
+menutrans &Virtual\ Edit TRANSLATION\ MISSING
 " Edit.Global Settings.Virtual Edit menuitems {{{3
-menutrans Never	TRANSLATION\ MISSING
-menutrans Block\ Selection	TRANSLATION\ MISSING
-menutrans Insert\ Mode	TRANSLATION\ MISSING
-menutrans Block\ and\ Insert	TRANSLATION\ MISSING
-menutrans Always	TRANSLATION\ MISSING
+menutrans Never TRANSLATION\ MISSING
+menutrans Block\ Selection TRANSLATION\ MISSING
+menutrans Insert\ Mode TRANSLATION\ MISSING
+menutrans Block\ and\ Insert TRANSLATION\ MISSING
+menutrans Always TRANSLATION\ MISSING
 " }}}
-menutrans Toggle\ Insert\ &Mode<Tab>:set\ im!	TRANSLATION\ MISSING
-menutrans Toggle\ Vi\ C&ompatibility<Tab>:set\ cp!	TRANSLATION\ MISSING
-menutrans Search\ &Path\.\.\.	TRANSLATION\ MISSING
-menutrans Ta&g\ Files\.\.\.	TRANSLATION\ MISSING
+menutrans Toggle\ Insert\ &Mode<Tab>:set\ im! TRANSLATION\ MISSING
+menutrans Toggle\ Vi\ C&ompatibility<Tab>:set\ cp! TRANSLATION\ MISSING
+menutrans Search\ &Path\.\.\. TRANSLATION\ MISSING
+menutrans Ta&g\ Files\.\.\. TRANSLATION\ MISSING
 
 " GUI options
-menutrans Toggle\ &Toolbar	TRANSLATION\ MISSING
-menutrans Toggle\ &Bottom\ Scrollbar	TRANSLATION\ MISSING
-menutrans Toggle\ &Left\ Scrollbar	TRANSLATION\ MISSING
-menutrans Toggle\ &Right\ Scrollbar	TRANSLATION\ MISSING
+menutrans Toggle\ &Toolbar TRANSLATION\ MISSING
+menutrans Toggle\ &Bottom\ Scrollbar TRANSLATION\ MISSING
+menutrans Toggle\ &Left\ Scrollbar TRANSLATION\ MISSING
+menutrans Toggle\ &Right\ Scrollbar TRANSLATION\ MISSING
 
 " fun! s:SearchP()
 if !exists("g:menutrans_path_dialog")
@@ -114,23 +113,23 @@ endif
 " }}}
 
 " Edit/File Settings
-menutrans F&ile\ Settings	TRANSLATION\ MISSING
+menutrans F&ile\ Settings TRANSLATION\ MISSING
 " Edit.File Settings menuitems and dialogs {{{2
 " Boolean options
-menutrans Toggle\ Line\ &Numbering<Tab>:set\ nu!	TRANSLATION\ MISSING
-menutrans Toggle\ Relati&ve\ Line\ Numbering<Tab>:set\ rnu!	TRANSLATION\ MISSING
-menutrans Toggle\ &List\ Mode<Tab>:set\ list!	TRANSLATION\ MISSING
-menutrans Toggle\ Line\ &Wrapping<Tab>:set\ wrap!	TRANSLATION\ MISSING
-menutrans Toggle\ W&rapping\ at\ Word<Tab>:set\ lbr!	TRANSLATION\ MISSING
-menutrans Toggle\ Tab\ &Expanding<Tab>:set\ et!	TRANSLATION\ MISSING
-menutrans Toggle\ &Auto\ Indenting<Tab>:set\ ai!	TRANSLATION\ MISSING
-menutrans Toggle\ &C-Style\ Indenting<Tab>:set\ cin!	TRANSLATION\ MISSING
+menutrans Toggle\ Line\ &Numbering<Tab>:set\ nu! TRANSLATION\ MISSING
+menutrans Toggle\ Relati&ve\ Line\ Numbering<Tab>:set\ rnu! TRANSLATION\ MISSING
+menutrans Toggle\ &List\ Mode<Tab>:set\ list! TRANSLATION\ MISSING
+menutrans Toggle\ Line\ &Wrapping<Tab>:set\ wrap! TRANSLATION\ MISSING
+menutrans Toggle\ W&rapping\ at\ Word<Tab>:set\ lbr! TRANSLATION\ MISSING
+menutrans Toggle\ Tab\ &Expanding<Tab>:set\ et! TRANSLATION\ MISSING
+menutrans Toggle\ &Auto\ Indenting<Tab>:set\ ai! TRANSLATION\ MISSING
+menutrans Toggle\ &C-Style\ Indenting<Tab>:set\ cin! TRANSLATION\ MISSING
 
 " other options
-menutrans &Shiftwidth	TRANSLATION\ MISSING
-menutrans Soft\ &Tabstop	TRANSLATION\ MISSING
-menutrans Te&xt\ Width\.\.\.	TRANSLATION\ MISSING
-menutrans &File\ Format\.\.\.	TRANSLATION\ MISSING
+menutrans &Shiftwidth TRANSLATION\ MISSING
+menutrans Soft\ &Tabstop TRANSLATION\ MISSING
+menutrans Te&xt\ Width\.\.\. TRANSLATION\ MISSING
+menutrans &File\ Format\.\.\. TRANSLATION\ MISSING
 
 " fun! s:TextWidth()
 if !exists("g:menutrans_textwidth_dialog")
@@ -145,37 +144,37 @@ if !exists("g:menutrans_fileformat_choices")
 let g:menutrans_fileformat_choices = "TRANSLATION MISSING"
 endif
 " }}}
-menutrans Show\ C&olor\ Schemes\ in\ Menu	TRANSLATION\ MISSING
-menutrans C&olor\ Scheme	TRANSLATION\ MISSING
+menutrans Show\ C&olor\ Schemes\ in\ Menu TRANSLATION\ MISSING
+menutrans C&olor\ Scheme TRANSLATION\ MISSING
 menutrans None TRANSLATION\ MISSING
-menutrans Show\ &Keymaps\ in\ Menu	TRANSLATION\ MISSING
-menutrans &Keymap	TRANSLATION\ MISSING
-menutrans Select\ Fo&nt\.\.\.	TRANSLATION\ MISSING
+menutrans Show\ &Keymaps\ in\ Menu TRANSLATION\ MISSING
+menutrans &Keymap TRANSLATION\ MISSING
+menutrans Select\ Fo&nt\.\.\. TRANSLATION\ MISSING
 " }}}
 
 " Programming menu
-menutrans &Tools	TRANSLATION\ MISSING
+menutrans &Tools TRANSLATION\ MISSING
 " Tools menuitems {{{1
-menutrans &Jump\ to\ This\ Tag<Tab>g^]	TRANSLATION\ MISSING
-menutrans Jump\ &Back<Tab>^T	TRANSLATION\ MISSING
-menutrans Build\ &Tags\ File	TRANSLATION\ MISSING
+menutrans &Jump\ to\ This\ Tag<Tab>g^] TRANSLATION\ MISSING
+menutrans Jump\ &Back<Tab>^T TRANSLATION\ MISSING
+menutrans Build\ &Tags\ File TRANSLATION\ MISSING
 
 " Tools.Spelling Menu
-menutrans &Spelling	TRANSLATION\ MISSING
+menutrans &Spelling TRANSLATION\ MISSING
 " Tools.Spelling menuitems and dialog {{{2
-menutrans &Spell\ Check\ On	TRANSLATION\ MISSING
-menutrans Spell\ Check\ &Off	TRANSLATION\ MISSING
-menutrans To\ &Next\ Error<Tab>]s	TRANSLATION\ MISSING
-menutrans To\ &Previous\ Error<Tab>[s	TRANSLATION\ MISSING
-menutrans Suggest\ &Corrections<Tab>z=	TRANSLATION\ MISSING
-menutrans &Repeat\ Correction<Tab>:spellrepall	TRANSLATION\ MISSING
-menutrans Set\ Language\ to\ "en"	TRANSLATION\ MISSING
-menutrans Set\ Language\ to\ "en_au"	TRANSLATION\ MISSING
-menutrans Set\ Language\ to\ "en_ca"	TRANSLATION\ MISSING
-menutrans Set\ Language\ to\ "en_gb"	TRANSLATION\ MISSING
-menutrans Set\ Language\ to\ "en_nz"	TRANSLATION\ MISSING
-menutrans Set\ Language\ to\ "en_us"	TRANSLATION\ MISSING
-menutrans &Find\ More\ Languages	TRANSLATION\ MISSING
+menutrans &Spell\ Check\ On TRANSLATION\ MISSING
+menutrans Spell\ Check\ &Off TRANSLATION\ MISSING
+menutrans To\ &Next\ Error<Tab>]s TRANSLATION\ MISSING
+menutrans To\ &Previous\ Error<Tab>[s TRANSLATION\ MISSING
+menutrans Suggest\ &Corrections<Tab>z= TRANSLATION\ MISSING
+menutrans &Repeat\ Correction<Tab>:spellrepall TRANSLATION\ MISSING
+menutrans Set\ Language\ to\ "en" TRANSLATION\ MISSING
+menutrans Set\ Language\ to\ "en_au" TRANSLATION\ MISSING
+menutrans Set\ Language\ to\ "en_ca" TRANSLATION\ MISSING
+menutrans Set\ Language\ to\ "en_gb" TRANSLATION\ MISSING
+menutrans Set\ Language\ to\ "en_nz" TRANSLATION\ MISSING
+menutrans Set\ Language\ to\ "en_us" TRANSLATION\ MISSING
+menutrans &Find\ More\ Languages TRANSLATION\ MISSING
 
 " func! s:SpellLang()
 if !exists("g:menutrans_set_lang_to")
@@ -184,70 +183,70 @@ endif
 " }}}
 
 " Tools.Fold Menu
-menutrans &Folding	TRANSLATION\ MISSING
+menutrans &Folding TRANSLATION\ MISSING
 " Tools.Fold menuitems {{{2
 " open close folds
-menutrans &Enable/Disable\ Folds<Tab>zi	TRANSLATION\ MISSING
-menutrans &View\ Cursor\ Line<Tab>zv	TRANSLATION\ MISSING
-menutrans Vie&w\ Cursor\ Line\ Only<Tab>zMzx	TRANSLATION\ MISSING
-menutrans C&lose\ More\ Folds<Tab>zm	TRANSLATION\ MISSING
-menutrans &Close\ All\ Folds<Tab>zM	TRANSLATION\ MISSING
-menutrans O&pen\ More\ Folds<Tab>zr	TRANSLATION\ MISSING
-menutrans &Open\ All\ Folds<Tab>zR	TRANSLATION\ MISSING
+menutrans &Enable/Disable\ Folds<Tab>zi TRANSLATION\ MISSING
+menutrans &View\ Cursor\ Line<Tab>zv TRANSLATION\ MISSING
+menutrans Vie&w\ Cursor\ Line\ Only<Tab>zMzx TRANSLATION\ MISSING
+menutrans C&lose\ More\ Folds<Tab>zm TRANSLATION\ MISSING
+menutrans &Close\ All\ Folds<Tab>zM TRANSLATION\ MISSING
+menutrans O&pen\ More\ Folds<Tab>zr TRANSLATION\ MISSING
+menutrans &Open\ All\ Folds<Tab>zR TRANSLATION\ MISSING
 " fold method
-menutrans Fold\ Met&hod	TRANSLATION\ MISSING
+menutrans Fold\ Met&hod TRANSLATION\ MISSING
 " Tools.Fold.Fold Method menuitems {{{3
-menutrans M&anual	TRANSLATION\ MISSING
-menutrans I&ndent	TRANSLATION\ MISSING
-menutrans E&xpression	TRANSLATION\ MISSING
-menutrans S&yntax	TRANSLATION\ MISSING
-menutrans &Diff	TRANSLATION\ MISSING
-menutrans Ma&rker	TRANSLATION\ MISSING
+menutrans M&anual TRANSLATION\ MISSING
+menutrans I&ndent TRANSLATION\ MISSING
+menutrans E&xpression TRANSLATION\ MISSING
+menutrans S&yntax TRANSLATION\ MISSING
+menutrans &Diff TRANSLATION\ MISSING
+menutrans Ma&rker TRANSLATION\ MISSING
 " }}}
 " create and delete folds
-menutrans Create\ &Fold<Tab>zf	TRANSLATION\ MISSING
-menutrans &Delete\ Fold<Tab>zd	TRANSLATION\ MISSING
-menutrans Delete\ &All\ Folds<Tab>zD	TRANSLATION\ MISSING
+menutrans Create\ &Fold<Tab>zf TRANSLATION\ MISSING
+menutrans &Delete\ Fold<Tab>zd TRANSLATION\ MISSING
+menutrans Delete\ &All\ Folds<Tab>zD TRANSLATION\ MISSING
 " moving around in folds
-menutrans Fold\ Col&umn\ Width	TRANSLATION\ MISSING
+menutrans Fold\ Col&umn\ Width TRANSLATION\ MISSING
 " }}}
 
 " Tools.Diff Menu
-menutrans &Diff	TRANSLATION\ MISSING
+menutrans &Diff TRANSLATION\ MISSING
 " Tools.Diff menuitems {{{2
-menutrans &Update	TRANSLATION\ MISSING
-menutrans &Get\ Block	TRANSLATION\ MISSING
-menutrans &Put\ Block	TRANSLATION\ MISSING
+menutrans &Update TRANSLATION\ MISSING
+menutrans &Get\ Block TRANSLATION\ MISSING
+menutrans &Put\ Block TRANSLATION\ MISSING
 " }}}
 
-menutrans &Make<Tab>:make	TRANSLATION\ MISSING
-menutrans &List\ Errors<Tab>:cl	TRANSLATION\ MISSING
-menutrans L&ist\ Messages<Tab>:cl!	TRANSLATION\ MISSING
-menutrans &Next\ Error<Tab>:cn	TRANSLATION\ MISSING
-menutrans &Previous\ Error<Tab>:cp	TRANSLATION\ MISSING
-menutrans &Older\ List<Tab>:cold	TRANSLATION\ MISSING
-menutrans N&ewer\ List<Tab>:cnew	TRANSLATION\ MISSING
-menutrans Error\ &Window	TRANSLATION\ MISSING
+menutrans &Make<Tab>:make TRANSLATION\ MISSING
+menutrans &List\ Errors<Tab>:cl TRANSLATION\ MISSING
+menutrans L&ist\ Messages<Tab>:cl! TRANSLATION\ MISSING
+menutrans &Next\ Error<Tab>:cn TRANSLATION\ MISSING
+menutrans &Previous\ Error<Tab>:cp TRANSLATION\ MISSING
+menutrans &Older\ List<Tab>:cold TRANSLATION\ MISSING
+menutrans N&ewer\ List<Tab>:cnew TRANSLATION\ MISSING
+menutrans Error\ &Window TRANSLATION\ MISSING
 " Tools.Error Window menuitems {{{2
-menutrans &Update<Tab>:cwin	TRANSLATION\ MISSING
-menutrans &Open<Tab>:copen	TRANSLATION\ MISSING
-menutrans &Close<Tab>:cclose	TRANSLATION\ MISSING
+menutrans &Update<Tab>:cwin TRANSLATION\ MISSING
+menutrans &Open<Tab>:copen TRANSLATION\ MISSING
+menutrans &Close<Tab>:cclose TRANSLATION\ MISSING
 " }}}
-menutrans Show\ Compiler\ Se&ttings\ in\ Menu	TRANSLATION\ MISSING
-menutrans Se&t\ Compiler	TRANSLATION\ MISSING
-menutrans &Convert\ to\ HEX<Tab>:%!xxd	TRANSLATION\ MISSING
-menutrans Conve&rt\ Back<Tab>:%!xxd\ -r	TRANSLATION\ MISSING
+menutrans Show\ Compiler\ Se&ttings\ in\ Menu TRANSLATION\ MISSING
+menutrans Se&t\ Compiler TRANSLATION\ MISSING
+menutrans &Convert\ to\ HEX<Tab>:%!xxd TRANSLATION\ MISSING
+menutrans Conve&rt\ Back<Tab>:%!xxd\ -r TRANSLATION\ MISSING
 " }}}
 
 " Buffer menu
-menutrans &Buffers	TRANSLATION\ MISSING
+menutrans &Buffers TRANSLATION\ MISSING
 menutrans Dummy TRANSLATION\ MISSING
 " Buffer menuitems and dialog {{{1
-menutrans &Refresh\ Menu	TRANSLATION\ MISSING
-menutrans &Delete	TRANSLATION\ MISSING
-menutrans &Alternate	TRANSLATION\ MISSING
-menutrans &Next	TRANSLATION\ MISSING
-menutrans &Previous	TRANSLATION\ MISSING
+menutrans &Refresh\ Menu TRANSLATION\ MISSING
+menutrans &Delete TRANSLATION\ MISSING
+menutrans &Alternate TRANSLATION\ MISSING
+menutrans &Next TRANSLATION\ MISSING
+menutrans &Previous TRANSLATION\ MISSING
 
 " func! s:BMMunge(fname, bnum)
 if !exists("g:menutrans_no_file")
@@ -256,42 +255,42 @@ endif
 " }}}
 
 " Window menu
-menutrans &Window	TRANSLATION\ MISSING
+menutrans &Window TRANSLATION\ MISSING
 " Window menuitems {{{1
-menutrans &New<Tab>^Wn	TRANSLATION\ MISSING
-menutrans S&plit<Tab>^Ws	TRANSLATION\ MISSING
-menutrans Sp&lit\ To\ #<Tab>^W^^	TRANSLATION\ MISSING
-menutrans Split\ &Vertically<Tab>^Wv	TRANSLATION\ MISSING
-menutrans Split\ File\ E&xplorer	TRANSLATION\ MISSING
-menutrans &Close<Tab>^Wc	TRANSLATION\ MISSING
-menutrans Close\ &Other(s)<Tab>^Wo	TRANSLATION\ MISSING
-menutrans Move\ &To	TRANSLATION\ MISSING
-menutrans &Top<Tab>^WK	TRANSLATION\ MISSING
-menutrans &Bottom<Tab>^WJ	TRANSLATION\ MISSING
-menutrans &Left\ Side<Tab>^WH	TRANSLATION\ MISSING
-menutrans &Right\ Side<Tab>^WL	TRANSLATION\ MISSING
-menutrans Rotate\ &Up<Tab>^WR	TRANSLATION\ MISSING
-menutrans Rotate\ &Down<Tab>^Wr	TRANSLATION\ MISSING
-menutrans &Equal\ Size<Tab>^W=	TRANSLATION\ MISSING
-menutrans &Max\ Height<Tab>^W_	TRANSLATION\ MISSING
-menutrans M&in\ Height<Tab>^W1_	TRANSLATION\ MISSING
-menutrans Max\ &Width<Tab>^W\|	TRANSLATION\ MISSING
-menutrans Min\ Widt&h<Tab>^W1\|	TRANSLATION\ MISSING
+menutrans &New<Tab>^Wn TRANSLATION\ MISSING
+menutrans S&plit<Tab>^Ws TRANSLATION\ MISSING
+menutrans Sp&lit\ To\ #<Tab>^W^^ TRANSLATION\ MISSING
+menutrans Split\ &Vertically<Tab>^Wv TRANSLATION\ MISSING
+menutrans Split\ File\ E&xplorer TRANSLATION\ MISSING
+menutrans &Close<Tab>^Wc TRANSLATION\ MISSING
+menutrans Close\ &Other(s)<Tab>^Wo TRANSLATION\ MISSING
+menutrans Move\ &To TRANSLATION\ MISSING
+menutrans &Top<Tab>^WK TRANSLATION\ MISSING
+menutrans &Bottom<Tab>^WJ TRANSLATION\ MISSING
+menutrans &Left\ Side<Tab>^WH TRANSLATION\ MISSING
+menutrans &Right\ Side<Tab>^WL TRANSLATION\ MISSING
+menutrans Rotate\ &Up<Tab>^WR TRANSLATION\ MISSING
+menutrans Rotate\ &Down<Tab>^Wr TRANSLATION\ MISSING
+menutrans &Equal\ Size<Tab>^W= TRANSLATION\ MISSING
+menutrans &Max\ Height<Tab>^W_ TRANSLATION\ MISSING
+menutrans M&in\ Height<Tab>^W1_ TRANSLATION\ MISSING
+menutrans Max\ &Width<Tab>^W\| TRANSLATION\ MISSING
+menutrans Min\ Widt&h<Tab>^W1\| TRANSLATION\ MISSING
 " }}}
 
 " The popup menu {{{1
-menutrans &Undo	TRANSLATION\ MISSING
-menutrans Cu&t	TRANSLATION\ MISSING
-menutrans &Copy	TRANSLATION\ MISSING
-menutrans &Paste	TRANSLATION\ MISSING
-menutrans &Delete	TRANSLATION\ MISSING
-menutrans Select\ Blockwise	TRANSLATION\ MISSING
-menutrans Select\ &Word	TRANSLATION\ MISSING
-menutrans Select\ &Sentence	TRANSLATION\ MISSING
-menutrans Select\ Pa&ragraph	TRANSLATION\ MISSING
-menutrans Select\ &Line	TRANSLATION\ MISSING
-menutrans Select\ &Block	TRANSLATION\ MISSING
-menutrans Select\ &All	TRANSLATION\ MISSING
+menutrans &Undo TRANSLATION\ MISSING
+menutrans Cu&t TRANSLATION\ MISSING
+menutrans &Copy TRANSLATION\ MISSING
+menutrans &Paste TRANSLATION\ MISSING
+menutrans &Delete TRANSLATION\ MISSING
+menutrans Select\ Blockwise TRANSLATION\ MISSING
+menutrans Select\ &Word TRANSLATION\ MISSING
+menutrans Select\ &Sentence TRANSLATION\ MISSING
+menutrans Select\ Pa&ragraph TRANSLATION\ MISSING
+menutrans Select\ &Line TRANSLATION\ MISSING
+menutrans Select\ &Block TRANSLATION\ MISSING
+menutrans Select\ &All TRANSLATION\ MISSING
 
 " func! <SID>SpellPopup()
 if !exists("g:menutrans_spell_change_ARG_to")
@@ -312,47 +311,47 @@ delfun Do_toolbar_tmenu
 endif
 fun Do_toolbar_tmenu()
 let did_toolbar_tmenu = 1
-tmenu ToolBar.Open	TRANSLATION MISSING
-tmenu ToolBar.Save	TRANSLATION MISSING
-tmenu ToolBar.SaveAll	TRANSLATION MISSING
-tmenu ToolBar.Print	TRANSLATION MISSING
-tmenu ToolBar.Undo	TRANSLATION MISSING
-tmenu ToolBar.Redo	TRANSLATION MISSING
-tmenu ToolBar.Cut	TRANSLATION MISSING
-tmenu ToolBar.Copy	TRANSLATION MISSING
-tmenu ToolBar.Paste	TRANSLATION MISSING
+tmenu ToolBar.Open TRANSLATION MISSING
+tmenu ToolBar.Save TRANSLATION MISSING
+tmenu ToolBar.SaveAll TRANSLATION MISSING
+tmenu ToolBar.Print TRANSLATION MISSING
+tmenu ToolBar.Undo TRANSLATION MISSING
+tmenu ToolBar.Redo TRANSLATION MISSING
+tmenu ToolBar.Cut TRANSLATION MISSING
+tmenu ToolBar.Copy TRANSLATION MISSING
+tmenu ToolBar.Paste TRANSLATION MISSING
 if !has("gui_athena")
-tmenu ToolBar.Replace	TRANSLATION MISSING
-tmenu ToolBar.FindNext	TRANSLATION MISSING
-tmenu ToolBar.FindPrev	TRANSLATION MISSING
+tmenu ToolBar.Replace TRANSLATION MISSING
+tmenu ToolBar.FindNext TRANSLATION MISSING
+tmenu ToolBar.FindPrev TRANSLATION MISSING
 endif
-tmenu ToolBar.LoadSesn	TRANSLATION MISSING
-tmenu ToolBar.SaveSesn	TRANSLATION MISSING
-tmenu ToolBar.RunScript	TRANSLATION MISSING
-tmenu ToolBar.Make	TRANSLATION MISSING
-tmenu ToolBar.RunCtags	TRANSLATION MISSING
-tmenu ToolBar.TagJump	TRANSLATION MISSING
-tmenu ToolBar.Help	TRANSLATION MISSING
-tmenu ToolBar.FindHelp	TRANSLATION MISSING
+tmenu ToolBar.LoadSesn TRANSLATION MISSING
+tmenu ToolBar.SaveSesn TRANSLATION MISSING
+tmenu ToolBar.RunScript TRANSLATION MISSING
+tmenu ToolBar.Make TRANSLATION MISSING
+tmenu ToolBar.RunCtags TRANSLATION MISSING
+tmenu ToolBar.TagJump TRANSLATION MISSING
+tmenu ToolBar.Help TRANSLATION MISSING
+tmenu ToolBar.FindHelp TRANSLATION MISSING
 endfun
 endif
 " }}}
 
 " Syntax menu
-menutrans &Syntax	TRANSLATION\ MISSING
+menutrans &Syntax TRANSLATION\ MISSING
 " Syntax menuitems {{{1
-menutrans &Show\ File\ Types\ in\ Menu	TRANSLATION\ MISSING
-menutrans &Off	TRANSLATION\ MISSING
-menutrans &Manual	TRANSLATION\ MISSING
-menutrans A&utomatic	TRANSLATION\ MISSING
-menutrans On/Off\ for\ &This\ File	TRANSLATION\ MISSING
-menutrans Co&lor\ Test	TRANSLATION\ MISSING
-menutrans &Highlight\ Test	TRANSLATION\ MISSING
-menutrans &Convert\ to\ HTML	TRANSLATION\ MISSING
+menutrans &Show\ File\ Types\ in\ Menu TRANSLATION\ MISSING
+menutrans &Off TRANSLATION\ MISSING
+menutrans &Manual TRANSLATION\ MISSING
+menutrans A&utomatic TRANSLATION\ MISSING
+menutrans On/Off\ for\ &This\ File TRANSLATION\ MISSING
+menutrans Co&lor\ Test TRANSLATION\ MISSING
+menutrans &Highlight\ Test TRANSLATION\ MISSING
+menutrans &Convert\ to\ HTML TRANSLATION\ MISSING
 
 " From synmenu.vim
-menutrans Set\ '&syntax'\ Only	TRANSLATION\ MISSING
-menutrans Set\ '&filetype'\ Too	TRANSLATION\ MISSING
+menutrans Set\ '&syntax'\ Only TRANSLATION\ MISSING
+menutrans Set\ '&filetype'\ Too TRANSLATION\ MISSING
 menutrans AB TRANSLATION\ MISSING
 menutrans A2ps\ config TRANSLATION\ MISSING
 menutrans Aap TRANSLATION\ MISSING
@@ -1006,99 +1005,99 @@ menutrans Zimbu TRANSLATION\ MISSING
 " Plugin loading may be after menu translation
 " So giveup testing if Netrw Plugin is loaded
 " if exists("g:loaded_netrwPlugin")
-menutrans Help<tab><F1>	TRANSLATION\ MISSING
-menutrans Bookmarks	TRANSLATION\ MISSING
-menutrans History	TRANSLATION\ MISSING
-menutrans Go\ Up\ Directory<tab>-	TRANSLATION\ MISSING
-menutrans Apply\ Special\ Viewer<tab>x	TRANSLATION\ MISSING
-menutrans Bookmarks\ and\ History	TRANSLATION\ MISSING
+menutrans Help<tab><F1> TRANSLATION\ MISSING
+menutrans Bookmarks TRANSLATION\ MISSING
+menutrans History TRANSLATION\ MISSING
+menutrans Go\ Up\ Directory<tab>- TRANSLATION\ MISSING
+menutrans Apply\ Special\ Viewer<tab>x TRANSLATION\ MISSING
+menutrans Bookmarks\ and\ History TRANSLATION\ MISSING
 " Netrw.Bookmarks and History menuitems {{{2
-menutrans Bookmark\ Current\ Directory<tab>mb	TRANSLATION\ MISSING
-menutrans Bookmark\ Delete	TRANSLATION\ MISSING
-menutrans Goto\ Prev\ Dir\ (History)<tab>u	TRANSLATION\ MISSING
-menutrans Goto\ Next\ Dir\ (History)<tab>U	TRANSLATION\ MISSING
-menutrans List<tab>qb	TRANSLATION\ MISSING
+menutrans Bookmark\ Current\ Directory<tab>mb TRANSLATION\ MISSING
+menutrans Bookmark\ Delete TRANSLATION\ MISSING
+menutrans Goto\ Prev\ Dir\ (History)<tab>u TRANSLATION\ MISSING
+menutrans Goto\ Next\ Dir\ (History)<tab>U TRANSLATION\ MISSING
+menutrans List<tab>qb TRANSLATION\ MISSING
 " }}}
-menutrans Browsing\ Control	TRANSLATION\ MISSING
+menutrans Browsing\ Control TRANSLATION\ MISSING
 " Netrw.Browsing Control menuitems {{{2
-menutrans Horizontal\ Split<tab>o	TRANSLATION\ MISSING
-menutrans Vertical\ Split<tab>v	TRANSLATION\ MISSING
-menutrans New\ Tab<tab>t	TRANSLATION\ MISSING
-menutrans Preview<tab>p	TRANSLATION\ MISSING
-menutrans Edit\ File\ Hiding\ List<tab><ctrl-h>	TRANSLATION\ MISSING
-menutrans Edit\ Sorting\ Sequence<tab>S	TRANSLATION\ MISSING
-menutrans Quick\ Hide/Unhide\ Dot\ Files<tab>gh	TRANSLATION\ MISSING
-menutrans Refresh\ Listing<tab><ctrl-l>	TRANSLATION\ MISSING
-menutrans Settings/Options<tab>:NetrwSettings	TRANSLATION\ MISSING
+menutrans Horizontal\ Split<tab>o TRANSLATION\ MISSING
+menutrans Vertical\ Split<tab>v TRANSLATION\ MISSING
+menutrans New\ Tab<tab>t TRANSLATION\ MISSING
+menutrans Preview<tab>p TRANSLATION\ MISSING
+menutrans Edit\ File\ Hiding\ List<tab><ctrl-h> TRANSLATION\ MISSING
+menutrans Edit\ Sorting\ Sequence<tab>S TRANSLATION\ MISSING
+menutrans Quick\ Hide/Unhide\ Dot\ Files<tab>gh TRANSLATION\ MISSING
+menutrans Refresh\ Listing<tab><ctrl-l> TRANSLATION\ MISSING
+menutrans Settings/Options<tab>:NetrwSettings TRANSLATION\ MISSING
 " }}}
-menutrans Delete\ File/Directory<tab>D	TRANSLATION\ MISSING
-menutrans Edit\ File/Dir	TRANSLATION\ MISSING
+menutrans Delete\ File/Directory<tab>D TRANSLATION\ MISSING
+menutrans Edit\ File/Dir TRANSLATION\ MISSING
 " Netrw.Edit File menuitems {{{2
-menutrans Create\ New\ File<tab>%	TRANSLATION\ MISSING
-menutrans In\ Current\ Window<tab><cr>	TRANSLATION\ MISSING
-menutrans Preview\ File/Directory<tab>p	TRANSLATION\ MISSING
-menutrans In\ Previous\ Window<tab>P	TRANSLATION\ MISSING
-menutrans In\ New\ Window<tab>o	TRANSLATION\ MISSING
-menutrans In\ New\ Tab<tab>t	TRANSLATION\ MISSING
-menutrans In\ New\ Vertical\ Window<tab>v	TRANSLATION\ MISSING
+menutrans Create\ New\ File<tab>% TRANSLATION\ MISSING
+menutrans In\ Current\ Window<tab><cr> TRANSLATION\ MISSING
+menutrans Preview\ File/Directory<tab>p TRANSLATION\ MISSING
+menutrans In\ Previous\ Window<tab>P TRANSLATION\ MISSING
+menutrans In\ New\ Window<tab>o TRANSLATION\ MISSING
+menutrans In\ New\ Tab<tab>t TRANSLATION\ MISSING
+menutrans In\ New\ Vertical\ Window<tab>v TRANSLATION\ MISSING
 " }}}
-menutrans Explore	TRANSLATION\ MISSING
+menutrans Explore TRANSLATION\ MISSING
 " Netrw.Explore menuitems {{{2
-menutrans Directory\ Name	TRANSLATION\ MISSING
-menutrans Filenames\ Matching\ Pattern\ (curdir\ only)<tab>:Explore\ */	TRANSLATION\ MISSING
-menutrans Filenames\ Matching\ Pattern\ (+subdirs)<tab>:Explore\ **/	TRANSLATION\ MISSING
-menutrans Files\ Containing\ String\ Pattern\ (curdir\ only)<tab>:Explore\ *//	TRANSLATION\ MISSING
-menutrans Files\ Containing\ String\ Pattern\ (+subdirs)<tab>:Explore\ **//	TRANSLATION\ MISSING
-menutrans Next\ Match<tab>:Nexplore	TRANSLATION\ MISSING
-menutrans Prev\ Match<tab>:Pexplore	TRANSLATION\ MISSING
+menutrans Directory\ Name TRANSLATION\ MISSING
+menutrans Filenames\ Matching\ Pattern\ (curdir\ only)<tab>:Explore\ */ TRANSLATION\ MISSING
+menutrans Filenames\ Matching\ Pattern\ (+subdirs)<tab>:Explore\ **/ TRANSLATION\ MISSING
+menutrans Files\ Containing\ String\ Pattern\ (curdir\ only)<tab>:Explore\ *// TRANSLATION\ MISSING
+menutrans Files\ Containing\ String\ Pattern\ (+subdirs)<tab>:Explore\ **// TRANSLATION\ MISSING
+menutrans Next\ Match<tab>:Nexplore TRANSLATION\ MISSING
+menutrans Prev\ Match<tab>:Pexplore TRANSLATION\ MISSING
 " }}}
-menutrans Make\ Subdirectory<tab>d	TRANSLATION\ MISSING
-menutrans Marked\ Files	TRANSLATION\ MISSING
+menutrans Make\ Subdirectory<tab>d TRANSLATION\ MISSING
+menutrans Marked\ Files TRANSLATION\ MISSING
 " Netrw.Marked Files menuitems {{{2
-menutrans Mark\ File<tab>mf	TRANSLATION\ MISSING
-menutrans Mark\ Files\ by\ Regexp<tab>mr	TRANSLATION\ MISSING
-menutrans Hide-Show-List\ Control<tab>a	TRANSLATION\ MISSING
-menutrans Copy\ To\ Target<tab>mc	TRANSLATION\ MISSING
-menutrans Delete<tab>D	TRANSLATION\ MISSING
-menutrans Diff<tab>md	TRANSLATION\ MISSING
-menutrans Edit<tab>me	TRANSLATION\ MISSING
-menutrans Exe\ Cmd<tab>mx	TRANSLATION\ MISSING
-menutrans Move\ To\ Target<tab>mm	TRANSLATION\ MISSING
-menutrans Obtain<tab>O	TRANSLATION\ MISSING
-menutrans Print<tab>mp	TRANSLATION\ MISSING
-menutrans Replace<tab>R	TRANSLATION\ MISSING
-menutrans Set\ Target<tab>mt	TRANSLATION\ MISSING
-menutrans Tag<tab>mT	TRANSLATION\ MISSING
-menutrans Zip/Unzip/Compress/Uncompress<tab>mz	TRANSLATION\ MISSING
+menutrans Mark\ File<tab>mf TRANSLATION\ MISSING
+menutrans Mark\ Files\ by\ Regexp<tab>mr TRANSLATION\ MISSING
+menutrans Hide-Show-List\ Control<tab>a TRANSLATION\ MISSING
+menutrans Copy\ To\ Target<tab>mc TRANSLATION\ MISSING
+menutrans Delete<tab>D TRANSLATION\ MISSING
+menutrans Diff<tab>md TRANSLATION\ MISSING
+menutrans Edit<tab>me TRANSLATION\ MISSING
+menutrans Exe\ Cmd<tab>mx TRANSLATION\ MISSING
+menutrans Move\ To\ Target<tab>mm TRANSLATION\ MISSING
+menutrans Obtain<tab>O TRANSLATION\ MISSING
+menutrans Print<tab>mp TRANSLATION\ MISSING
+menutrans Replace<tab>R TRANSLATION\ MISSING
+menutrans Set\ Target<tab>mt TRANSLATION\ MISSING
+menutrans Tag<tab>mT TRANSLATION\ MISSING
+menutrans Zip/Unzip/Compress/Uncompress<tab>mz TRANSLATION\ MISSING
 " }}}
-menutrans Obtain\ File<tab>O	TRANSLATION\ MISSING
-menutrans Style	TRANSLATION\ MISSING
+menutrans Obtain\ File<tab>O TRANSLATION\ MISSING
+menutrans Style TRANSLATION\ MISSING
 " Netrw.Style menuitems {{{2
-menutrans Listing	TRANSLATION\ MISSING
+menutrans Listing TRANSLATION\ MISSING
 " Netrw.Style.Listing menuitems {{{3
-menutrans thin<tab>i	TRANSLATION\ MISSING
-menutrans long<tab>i	TRANSLATION\ MISSING
-menutrans wide<tab>i	TRANSLATION\ MISSING
-menutrans tree<tab>i	TRANSLATION\ MISSING
+menutrans thin<tab>i TRANSLATION\ MISSING
+menutrans long<tab>i TRANSLATION\ MISSING
+menutrans wide<tab>i TRANSLATION\ MISSING
+menutrans tree<tab>i TRANSLATION\ MISSING
 " }}}
-menutrans Normal-Hide-Show	TRANSLATION\ MISSING
+menutrans Normal-Hide-Show TRANSLATION\ MISSING
 " Netrw.Style.Normal-Hide_show menuitems {{{3
-menutrans Show\ All<tab>a	TRANSLATION\ MISSING
-menutrans Normal<tab>a	TRANSLATION\ MISSING
-menutrans Hidden\ Only<tab>a	TRANSLATION\ MISSING
+menutrans Show\ All<tab>a TRANSLATION\ MISSING
+menutrans Normal<tab>a TRANSLATION\ MISSING
+menutrans Hidden\ Only<tab>a TRANSLATION\ MISSING
 " }}}
-menutrans Reverse\ Sorting\ Order<tab>r	TRANSLATION\ MISSING
-menutrans Sorting\ Method	TRANSLATION\ MISSING
+menutrans Reverse\ Sorting\ Order<tab>r TRANSLATION\ MISSING
+menutrans Sorting\ Method TRANSLATION\ MISSING
 " Netrw.Style.Sorting Method menuitems {{{3
-menutrans Name<tab>s	TRANSLATION\ MISSING
-menutrans Time<tab>s	TRANSLATION\ MISSING
-menutrans Size<tab>s	TRANSLATION\ MISSING
-menutrans Exten<tab>s	TRANSLATION\ MISSING
+menutrans Name<tab>s TRANSLATION\ MISSING
+menutrans Time<tab>s TRANSLATION\ MISSING
+menutrans Size<tab>s TRANSLATION\ MISSING
+menutrans Exten<tab>s TRANSLATION\ MISSING
 " }}}
 " }}}
-menutrans Rename\ File/Directory<tab>R	TRANSLATION\ MISSING
-menutrans Set\ Current\ Directory<tab>c	TRANSLATION\ MISSING
-menutrans Targets	TRANSLATION\ MISSING
+menutrans Rename\ File/Directory<tab>R TRANSLATION\ MISSING
+menutrans Set\ Current\ Directory<tab>c TRANSLATION\ MISSING
+menutrans Targets TRANSLATION\ MISSING
 " endif
 " }}}
 
