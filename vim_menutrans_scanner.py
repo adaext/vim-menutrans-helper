@@ -238,7 +238,7 @@ def make_translated_dict(translation_file, translated_dict):
                         line_number, translation_file, new_word_list[0])
 
 def usage():
-    print("""Usage: vim_menutrans_helper.py <runtime_dir> <translation_file>
+    print("""Usage: vim_menutrans_scanner.py <runtime_dir> <translation_file>
 
     runtime_dir:      the path of Vim runtime directory. See ":help $VIMRUNTIME"
                       for more details.
