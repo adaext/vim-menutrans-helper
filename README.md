@@ -25,7 +25,8 @@
   be annotated. The annotations should be removed after the translations are
   completed. There are three translation formats: `"TRANSLATION MISSING", TRANSLATION\ MISSING, TRANSLATION MISSING`. `"TRANSLATION MISSING"`
   shouldn't be dropped the quotes. `TRANSLATION\ MISSING` shouldn't be dropped
-  the backslash, which excapes the blank behind it and makes "TRANSLATION" and "MISSING" stick together.
+  the backslash, which excapes the blank behind it and makes "TRANSLATION" and
+  "MISSING" stick together.
 
 * `<vimruntime>`   
     + If you haven't installed Vim, just cloned the Vim official code
