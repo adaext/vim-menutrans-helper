@@ -15,16 +15,17 @@
   to be translated and messages need to be removed from the template.
 
 * `vim_menutrans_merger.py` is to apply `menu_trans.vim.template` to every
-  language. With the command `python vim_menutrans_merger.py menu_trans.vim.template /usr/share/vim/vim82/runtime/translationfile` under project root dictionary, you could generate the menu
+  language. With the command `python vim_menutrans_merger.py menu_trans.vim.template /usr/share/vim/vim82/runtime/translationfile`
+  under project root dictionary, you could generate the menu
   items template in `translationfile`.Since `vim_menutrans_merger.py` will cover
   the `translationfile`, it's not recommended to apply the command directly to
   the installed version on the system. You should apply it to the translation
   files in Source Tree, or create a copy and apply it to the copy if your want
   to revise the file on System. Untranslated items in the generated files will
   be annotated. The annotations should be removed after the translations are
-  completed. There are three translation formats: `"TRANSLATION MISSING", TRANSLATION\ MISSING, TRANSLATION MISSING`. `"TRANSLATION MISSING"` shouldn't be dropped the quotes.
-  `TRANSLATION\ MISSING` shouldn't be dropped the backslash, which excapes the
-  blank behind it and makes "TRANSLATION" and "MISSING" stick together.
+  completed. There are three translation formats: `"TRANSLATION MISSING", TRANSLATION\ MISSING, TRANSLATION MISSING`. `"TRANSLATION MISSING"`
+  shouldn't be dropped the quotes. `TRANSLATION\ MISSING` shouldn't be dropped
+  the backslash, which excapes the blank behind it and makes "TRANSLATION" and "MISSING" stick together.
 
 * `<vimruntime>`   
     + If you haven't installed Vim, just cloned the Vim official code
