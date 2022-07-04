@@ -9,7 +9,7 @@
 " Quit when menu translations have already been done.
 
 if exists("did_menu_trans")
-finish
+  finish
 endif
 let did_menu_trans = 1
 let s:keepcpo = &cpo
@@ -33,7 +33,7 @@ menutrans &About TRANSLATION\ MISSING
 
 " fun! s:Helpfind()
 if !exists("g:menutrans_help_dialog")
-let g:menutrans_help_dialog = "TRANSLATION MISSING"
+  let g:menutrans_help_dialog = "TRANSLATION MISSING"
 endif
 " }}}
 
@@ -103,12 +103,12 @@ menutrans Toggle\ &Right\ Scrollbar TRANSLATION\ MISSING
 
 " fun! s:SearchP()
 if !exists("g:menutrans_path_dialog")
-let g:menutrans_path_dialog = "TRANSLATION MISSING"
+  let g:menutrans_path_dialog = "TRANSLATION MISSING"
 endif
 
 " fun! s:TagFiles()
 if !exists("g:menutrans_tags_dialog")
-let g:menutrans_tags_dialog = "TRANSLATION MISSING"
+  let g:menutrans_tags_dialog = "TRANSLATION MISSING"
 endif
 " }}}
 
@@ -133,15 +133,15 @@ menutrans &File\ Format\.\.\. TRANSLATION\ MISSING
 
 " fun! s:TextWidth()
 if !exists("g:menutrans_textwidth_dialog")
-let g:menutrans_textwidth_dialog = "TRANSLATION MISSING"
+  let g:menutrans_textwidth_dialog = "TRANSLATION MISSING"
 endif
 
 " fun! s:FileFormat()
 if !exists("g:menutrans_fileformat_dialog")
-let g:menutrans_fileformat_dialog = "TRANSLATION MISSING"
+  let g:menutrans_fileformat_dialog = "TRANSLATION MISSING"
 endif
 if !exists("g:menutrans_fileformat_choices")
-let g:menutrans_fileformat_choices = "TRANSLATION MISSING"
+  let g:menutrans_fileformat_choices = "TRANSLATION MISSING"
 endif
 " }}}
 menutrans Show\ C&olor\ Schemes\ in\ Menu TRANSLATION\ MISSING
@@ -178,7 +178,7 @@ menutrans &Find\ More\ Languages TRANSLATION\ MISSING
 
 " func! s:SpellLang()
 if !exists("g:menutrans_set_lang_to")
-let g:menutrans_set_lang_to = "TRANSLATION MISSING"
+  let g:menutrans_set_lang_to = "TRANSLATION MISSING"
 endif
 " }}}
 
@@ -250,7 +250,7 @@ menutrans &Previous TRANSLATION\ MISSING
 
 " func! s:BMMunge(fname, bnum)
 if !exists("g:menutrans_no_file")
-let g:menutrans_no_file = "TRANSLATION MISSING"
+  let g:menutrans_no_file = "TRANSLATION MISSING"
 endif
 " }}}
 
@@ -294,46 +294,46 @@ menutrans Select\ &All TRANSLATION\ MISSING
 
 " func! <SID>SpellPopup()
 if !exists("g:menutrans_spell_change_ARG_to")
-let g:menutrans_spell_change_ARG_to = "TRANSLATION MISSING"
+  let g:menutrans_spell_change_ARG_to = "TRANSLATION MISSING"
 endif
 if !exists("g:menutrans_spell_add_ARG_to_word_list")
-let g:menutrans_spell_add_ARG_to_word_list = "TRANSLATION MISSING"
+  let g:menutrans_spell_add_ARG_to_word_list = "TRANSLATION MISSING"
 endif
 if !exists("g:menutrans_spell_ignore_ARG")
-let g:menutrans_spell_ignore_ARG = "TRANSLATION MISSING"
+  let g:menutrans_spell_ignore_ARG = "TRANSLATION MISSING"
 endif
 " }}}
 
 " The GUI toolbar {{{1
 if has("toolbar")
-if exists("*Do_toolbar_tmenu")
-delfun Do_toolbar_tmenu
-endif
-fun Do_toolbar_tmenu()
-let did_toolbar_tmenu = 1
-tmenu ToolBar.Open TRANSLATION MISSING
-tmenu ToolBar.Save TRANSLATION MISSING
-tmenu ToolBar.SaveAll TRANSLATION MISSING
-tmenu ToolBar.Print TRANSLATION MISSING
-tmenu ToolBar.Undo TRANSLATION MISSING
-tmenu ToolBar.Redo TRANSLATION MISSING
-tmenu ToolBar.Cut TRANSLATION MISSING
-tmenu ToolBar.Copy TRANSLATION MISSING
-tmenu ToolBar.Paste TRANSLATION MISSING
-if !has("gui_athena")
-tmenu ToolBar.Replace TRANSLATION MISSING
-tmenu ToolBar.FindNext TRANSLATION MISSING
-tmenu ToolBar.FindPrev TRANSLATION MISSING
-endif
-tmenu ToolBar.LoadSesn TRANSLATION MISSING
-tmenu ToolBar.SaveSesn TRANSLATION MISSING
-tmenu ToolBar.RunScript TRANSLATION MISSING
-tmenu ToolBar.Make TRANSLATION MISSING
-tmenu ToolBar.RunCtags TRANSLATION MISSING
-tmenu ToolBar.TagJump TRANSLATION MISSING
-tmenu ToolBar.Help TRANSLATION MISSING
-tmenu ToolBar.FindHelp TRANSLATION MISSING
-endfun
+  if exists("*Do_toolbar_tmenu")
+    delfun Do_toolbar_tmenu
+  endif
+  fun Do_toolbar_tmenu()
+    let did_toolbar_tmenu = 1
+    tmenu ToolBar.Open TRANSLATION MISSING
+    tmenu ToolBar.Save TRANSLATION MISSING
+    tmenu ToolBar.SaveAll TRANSLATION MISSING
+    tmenu ToolBar.Print TRANSLATION MISSING
+    tmenu ToolBar.Undo TRANSLATION MISSING
+    tmenu ToolBar.Redo TRANSLATION MISSING
+    tmenu ToolBar.Cut TRANSLATION MISSING
+    tmenu ToolBar.Copy TRANSLATION MISSING
+    tmenu ToolBar.Paste TRANSLATION MISSING
+    if !has("gui_athena")
+      tmenu ToolBar.Replace TRANSLATION MISSING
+      tmenu ToolBar.FindNext TRANSLATION MISSING
+      tmenu ToolBar.FindPrev TRANSLATION MISSING
+    endif
+    tmenu ToolBar.LoadSesn TRANSLATION MISSING
+    tmenu ToolBar.SaveSesn TRANSLATION MISSING
+    tmenu ToolBar.RunScript TRANSLATION MISSING
+    tmenu ToolBar.Make TRANSLATION MISSING
+    tmenu ToolBar.RunCtags TRANSLATION MISSING
+    tmenu ToolBar.TagJump TRANSLATION MISSING
+    tmenu ToolBar.Help TRANSLATION MISSING
+    tmenu ToolBar.FindHelp TRANSLATION MISSING
+  endfun
 endif
 " }}}
 
@@ -1005,99 +1005,99 @@ menutrans Zimbu TRANSLATION\ MISSING
 " Plugin loading may be after menu translation
 " So giveup testing if Netrw Plugin is loaded
 " if exists("g:loaded_netrwPlugin")
-menutrans Help<tab><F1> TRANSLATION\ MISSING
-menutrans Bookmarks TRANSLATION\ MISSING
-menutrans History TRANSLATION\ MISSING
-menutrans Go\ Up\ Directory<tab>- TRANSLATION\ MISSING
-menutrans Apply\ Special\ Viewer<tab>x TRANSLATION\ MISSING
-menutrans Bookmarks\ and\ History TRANSLATION\ MISSING
-" Netrw.Bookmarks and History menuitems {{{2
-menutrans Bookmark\ Current\ Directory<tab>mb TRANSLATION\ MISSING
-menutrans Bookmark\ Delete TRANSLATION\ MISSING
-menutrans Goto\ Prev\ Dir\ (History)<tab>u TRANSLATION\ MISSING
-menutrans Goto\ Next\ Dir\ (History)<tab>U TRANSLATION\ MISSING
-menutrans List<tab>qb TRANSLATION\ MISSING
-" }}}
-menutrans Browsing\ Control TRANSLATION\ MISSING
-" Netrw.Browsing Control menuitems {{{2
-menutrans Horizontal\ Split<tab>o TRANSLATION\ MISSING
-menutrans Vertical\ Split<tab>v TRANSLATION\ MISSING
-menutrans New\ Tab<tab>t TRANSLATION\ MISSING
-menutrans Preview<tab>p TRANSLATION\ MISSING
-menutrans Edit\ File\ Hiding\ List<tab><ctrl-h> TRANSLATION\ MISSING
-menutrans Edit\ Sorting\ Sequence<tab>S TRANSLATION\ MISSING
-menutrans Quick\ Hide/Unhide\ Dot\ Files<tab>gh TRANSLATION\ MISSING
-menutrans Refresh\ Listing<tab><ctrl-l> TRANSLATION\ MISSING
-menutrans Settings/Options<tab>:NetrwSettings TRANSLATION\ MISSING
-" }}}
-menutrans Delete\ File/Directory<tab>D TRANSLATION\ MISSING
-menutrans Edit\ File/Dir TRANSLATION\ MISSING
-" Netrw.Edit File menuitems {{{2
-menutrans Create\ New\ File<tab>% TRANSLATION\ MISSING
-menutrans In\ Current\ Window<tab><cr> TRANSLATION\ MISSING
-menutrans Preview\ File/Directory<tab>p TRANSLATION\ MISSING
-menutrans In\ Previous\ Window<tab>P TRANSLATION\ MISSING
-menutrans In\ New\ Window<tab>o TRANSLATION\ MISSING
-menutrans In\ New\ Tab<tab>t TRANSLATION\ MISSING
-menutrans In\ New\ Vertical\ Window<tab>v TRANSLATION\ MISSING
-" }}}
-menutrans Explore TRANSLATION\ MISSING
-" Netrw.Explore menuitems {{{2
-menutrans Directory\ Name TRANSLATION\ MISSING
-menutrans Filenames\ Matching\ Pattern\ (curdir\ only)<tab>:Explore\ */ TRANSLATION\ MISSING
-menutrans Filenames\ Matching\ Pattern\ (+subdirs)<tab>:Explore\ **/ TRANSLATION\ MISSING
-menutrans Files\ Containing\ String\ Pattern\ (curdir\ only)<tab>:Explore\ *// TRANSLATION\ MISSING
-menutrans Files\ Containing\ String\ Pattern\ (+subdirs)<tab>:Explore\ **// TRANSLATION\ MISSING
-menutrans Next\ Match<tab>:Nexplore TRANSLATION\ MISSING
-menutrans Prev\ Match<tab>:Pexplore TRANSLATION\ MISSING
-" }}}
-menutrans Make\ Subdirectory<tab>d TRANSLATION\ MISSING
-menutrans Marked\ Files TRANSLATION\ MISSING
-" Netrw.Marked Files menuitems {{{2
-menutrans Mark\ File<tab>mf TRANSLATION\ MISSING
-menutrans Mark\ Files\ by\ Regexp<tab>mr TRANSLATION\ MISSING
-menutrans Hide-Show-List\ Control<tab>a TRANSLATION\ MISSING
-menutrans Copy\ To\ Target<tab>mc TRANSLATION\ MISSING
-menutrans Delete<tab>D TRANSLATION\ MISSING
-menutrans Diff<tab>md TRANSLATION\ MISSING
-menutrans Edit<tab>me TRANSLATION\ MISSING
-menutrans Exe\ Cmd<tab>mx TRANSLATION\ MISSING
-menutrans Move\ To\ Target<tab>mm TRANSLATION\ MISSING
-menutrans Obtain<tab>O TRANSLATION\ MISSING
-menutrans Print<tab>mp TRANSLATION\ MISSING
-menutrans Replace<tab>R TRANSLATION\ MISSING
-menutrans Set\ Target<tab>mt TRANSLATION\ MISSING
-menutrans Tag<tab>mT TRANSLATION\ MISSING
-menutrans Zip/Unzip/Compress/Uncompress<tab>mz TRANSLATION\ MISSING
-" }}}
-menutrans Obtain\ File<tab>O TRANSLATION\ MISSING
-menutrans Style TRANSLATION\ MISSING
-" Netrw.Style menuitems {{{2
-menutrans Listing TRANSLATION\ MISSING
-" Netrw.Style.Listing menuitems {{{3
-menutrans thin<tab>i TRANSLATION\ MISSING
-menutrans long<tab>i TRANSLATION\ MISSING
-menutrans wide<tab>i TRANSLATION\ MISSING
-menutrans tree<tab>i TRANSLATION\ MISSING
-" }}}
-menutrans Normal-Hide-Show TRANSLATION\ MISSING
-" Netrw.Style.Normal-Hide_show menuitems {{{3
-menutrans Show\ All<tab>a TRANSLATION\ MISSING
-menutrans Normal<tab>a TRANSLATION\ MISSING
-menutrans Hidden\ Only<tab>a TRANSLATION\ MISSING
-" }}}
-menutrans Reverse\ Sorting\ Order<tab>r TRANSLATION\ MISSING
-menutrans Sorting\ Method TRANSLATION\ MISSING
-" Netrw.Style.Sorting Method menuitems {{{3
-menutrans Name<tab>s TRANSLATION\ MISSING
-menutrans Time<tab>s TRANSLATION\ MISSING
-menutrans Size<tab>s TRANSLATION\ MISSING
-menutrans Exten<tab>s TRANSLATION\ MISSING
-" }}}
-" }}}
-menutrans Rename\ File/Directory<tab>R TRANSLATION\ MISSING
-menutrans Set\ Current\ Directory<tab>c TRANSLATION\ MISSING
-menutrans Targets TRANSLATION\ MISSING
+  menutrans Help<tab><F1> TRANSLATION\ MISSING
+  menutrans Bookmarks TRANSLATION\ MISSING
+  menutrans History TRANSLATION\ MISSING
+  menutrans Go\ Up\ Directory<tab>- TRANSLATION\ MISSING
+  menutrans Apply\ Special\ Viewer<tab>x TRANSLATION\ MISSING
+  menutrans Bookmarks\ and\ History TRANSLATION\ MISSING
+  " Netrw.Bookmarks and History menuitems {{{2
+  menutrans Bookmark\ Current\ Directory<tab>mb TRANSLATION\ MISSING
+  menutrans Bookmark\ Delete TRANSLATION\ MISSING
+  menutrans Goto\ Prev\ Dir\ (History)<tab>u TRANSLATION\ MISSING
+  menutrans Goto\ Next\ Dir\ (History)<tab>U TRANSLATION\ MISSING
+  menutrans List<tab>qb TRANSLATION\ MISSING
+  " }}}
+  menutrans Browsing\ Control TRANSLATION\ MISSING
+  " Netrw.Browsing Control menuitems {{{2
+  menutrans Horizontal\ Split<tab>o TRANSLATION\ MISSING
+  menutrans Vertical\ Split<tab>v TRANSLATION\ MISSING
+  menutrans New\ Tab<tab>t TRANSLATION\ MISSING
+  menutrans Preview<tab>p TRANSLATION\ MISSING
+  menutrans Edit\ File\ Hiding\ List<tab><ctrl-h> TRANSLATION\ MISSING
+  menutrans Edit\ Sorting\ Sequence<tab>S TRANSLATION\ MISSING
+  menutrans Quick\ Hide/Unhide\ Dot\ Files<tab>gh TRANSLATION\ MISSING
+  menutrans Refresh\ Listing<tab><ctrl-l> TRANSLATION\ MISSING
+  menutrans Settings/Options<tab>:NetrwSettings TRANSLATION\ MISSING
+  " }}}
+  menutrans Delete\ File/Directory<tab>D TRANSLATION\ MISSING
+  menutrans Edit\ File/Dir TRANSLATION\ MISSING
+  " Netrw.Edit File menuitems {{{2
+  menutrans Create\ New\ File<tab>% TRANSLATION\ MISSING
+  menutrans In\ Current\ Window<tab><cr> TRANSLATION\ MISSING
+  menutrans Preview\ File/Directory<tab>p TRANSLATION\ MISSING
+  menutrans In\ Previous\ Window<tab>P TRANSLATION\ MISSING
+  menutrans In\ New\ Window<tab>o TRANSLATION\ MISSING
+  menutrans In\ New\ Tab<tab>t TRANSLATION\ MISSING
+  menutrans In\ New\ Vertical\ Window<tab>v TRANSLATION\ MISSING
+  " }}}
+  menutrans Explore TRANSLATION\ MISSING
+  " Netrw.Explore menuitems {{{2
+  menutrans Directory\ Name TRANSLATION\ MISSING
+  menutrans Filenames\ Matching\ Pattern\ (curdir\ only)<tab>:Explore\ */ TRANSLATION\ MISSING
+  menutrans Filenames\ Matching\ Pattern\ (+subdirs)<tab>:Explore\ **/ TRANSLATION\ MISSING
+  menutrans Files\ Containing\ String\ Pattern\ (curdir\ only)<tab>:Explore\ *// TRANSLATION\ MISSING
+  menutrans Files\ Containing\ String\ Pattern\ (+subdirs)<tab>:Explore\ **// TRANSLATION\ MISSING
+  menutrans Next\ Match<tab>:Nexplore TRANSLATION\ MISSING
+  menutrans Prev\ Match<tab>:Pexplore TRANSLATION\ MISSING
+  " }}}
+  menutrans Make\ Subdirectory<tab>d TRANSLATION\ MISSING
+  menutrans Marked\ Files TRANSLATION\ MISSING
+  " Netrw.Marked Files menuitems {{{2
+  menutrans Mark\ File<tab>mf TRANSLATION\ MISSING
+  menutrans Mark\ Files\ by\ Regexp<tab>mr TRANSLATION\ MISSING
+  menutrans Hide-Show-List\ Control<tab>a TRANSLATION\ MISSING
+  menutrans Copy\ To\ Target<tab>mc TRANSLATION\ MISSING
+  menutrans Delete<tab>D TRANSLATION\ MISSING
+  menutrans Diff<tab>md TRANSLATION\ MISSING
+  menutrans Edit<tab>me TRANSLATION\ MISSING
+  menutrans Exe\ Cmd<tab>mx TRANSLATION\ MISSING
+  menutrans Move\ To\ Target<tab>mm TRANSLATION\ MISSING
+  menutrans Obtain<tab>O TRANSLATION\ MISSING
+  menutrans Print<tab>mp TRANSLATION\ MISSING
+  menutrans Replace<tab>R TRANSLATION\ MISSING
+  menutrans Set\ Target<tab>mt TRANSLATION\ MISSING
+  menutrans Tag<tab>mT TRANSLATION\ MISSING
+  menutrans Zip/Unzip/Compress/Uncompress<tab>mz TRANSLATION\ MISSING
+  " }}}
+  menutrans Obtain\ File<tab>O TRANSLATION\ MISSING
+  menutrans Style TRANSLATION\ MISSING
+  " Netrw.Style menuitems {{{2
+  menutrans Listing TRANSLATION\ MISSING
+  " Netrw.Style.Listing menuitems {{{3
+  menutrans thin<tab>i TRANSLATION\ MISSING
+  menutrans long<tab>i TRANSLATION\ MISSING
+  menutrans wide<tab>i TRANSLATION\ MISSING
+  menutrans tree<tab>i TRANSLATION\ MISSING
+  " }}}
+  menutrans Normal-Hide-Show TRANSLATION\ MISSING
+  " Netrw.Style.Normal-Hide_show menuitems {{{3
+  menutrans Show\ All<tab>a TRANSLATION\ MISSING
+  menutrans Normal<tab>a TRANSLATION\ MISSING
+  menutrans Hidden\ Only<tab>a TRANSLATION\ MISSING
+  " }}}
+  menutrans Reverse\ Sorting\ Order<tab>r TRANSLATION\ MISSING
+  menutrans Sorting\ Method TRANSLATION\ MISSING
+  " Netrw.Style.Sorting Method menuitems {{{3
+  menutrans Name<tab>s TRANSLATION\ MISSING
+  menutrans Time<tab>s TRANSLATION\ MISSING
+  menutrans Size<tab>s TRANSLATION\ MISSING
+  menutrans Exten<tab>s TRANSLATION\ MISSING
+  " }}}
+  " }}}
+  menutrans Rename\ File/Directory<tab>R TRANSLATION\ MISSING
+  menutrans Set\ Current\ Directory<tab>c TRANSLATION\ MISSING
+  menutrans Targets TRANSLATION\ MISSING
 " endif
 " }}}
 
