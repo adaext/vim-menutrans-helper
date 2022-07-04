@@ -47,6 +47,7 @@ def replace_template_translation(template_file, translation_file, translated_dic
     # non-ASCII character.
     with open(template_file, encoding='latin1') as f:
         for line in f:
+            pre_chars = line[0:len(line) - len(line.lstrip())]
             line = line.strip()
             if not line:
                 new_content += "\n"
@@ -79,7 +80,8 @@ def replace_template_translation(template_file, translation_file, translated_dic
             
             if not has_translated:
                 line = '" ' + line
-
+                
+            new_content += pre_chars
             new_content += line
             new_content += "\n"
 
