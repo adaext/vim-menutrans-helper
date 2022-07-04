@@ -1208,21 +1208,6 @@ menutrans Cont TRANSLATION\ MISSING
 menutrans Stop TRANSLATION\ MISSING
 " }}}
 
-" matchit menu
-" matchit menuitems {{{1
-" From matchit.vim
-menutrans &Matchit TRANSLATION\ MISSING
-menutrans &pat TRANSLATION\ MISSING
-menutrans &match TRANSLATION\ MISSING
-menutrans &curcol TRANSLATION\ MISSING
-menutrans wh&oleBR TRANSLATION\ MISSING
-menutrans ini&BR TRANSLATION\ MISSING
-menutrans &ini TRANSLATION\ MISSING
-menutrans &tail TRANSLATION\ MISSING
-menutrans &word TRANSLATION\ MISSING
-menutrans t&able TRANSLATION\ MISSING
-" }}}
-
 " debchangelog menu
 " debchangelog menuitems {{{1
 " From debchangelog.vim
@@ -1232,7 +1217,6 @@ menutrans &Add\ Entry TRANSLATION\ MISSING
 menutrans &Close\ Bug TRANSLATION\ MISSING
 menutrans Set\ &Distribution TRANSLATION\ MISSING
 menutrans &unstable TRANSLATION\ MISSING
-menutrans Set\ Distribution TRANSLATION\ MISSING
 menutrans &frozen TRANSLATION\ MISSING
 menutrans &stable TRANSLATION\ MISSING
 menutrans frozen\ unstable TRANSLATION\ MISSING
@@ -1241,7 +1225,6 @@ menutrans stable\ frozen TRANSLATION\ MISSING
 menutrans stable\ frozen\ unstable TRANSLATION\ MISSING
 menutrans Set\ &Urgency TRANSLATION\ MISSING
 menutrans &low TRANSLATION\ MISSING
-menutrans Set\ Urgency TRANSLATION\ MISSING
 menutrans &medium TRANSLATION\ MISSING
 menutrans &high TRANSLATION\ MISSING
 menutrans U&nfinalise TRANSLATION\ MISSING
