@@ -1,5 +1,5 @@
 " Maintainer:           Ada (Haowen) Yu <me@yuhaowen.com>
-" Last Change:          2022 Jun 22
+" Last Change:          2022 July 9
 " Original translations
 "
 " Generated with the scripts from:
@@ -1104,9 +1104,10 @@ menutrans Zimbu TRANSLATION\ MISSING
 " Shellmenu menu
 " Shellmenu menuitems {{{1
 " From shellmenu.vim
+menutrans ShellMenu TRANSLATION\ MISSING
 menutrans MAIL TRANSLATION\ MISSING
 menutrans eval TRANSLATION\ MISSING
-menutrans Stmts TRANSLATION\ MISSING
+menutrans Statements TRANSLATION\ MISSING
 menutrans for TRANSLATION\ MISSING
 menutrans case TRANSLATION\ MISSING
 menutrans if TRANSLATION\ MISSING
@@ -1123,23 +1124,23 @@ menutrans exit TRANSLATION\ MISSING
 menutrans shift TRANSLATION\ MISSING
 menutrans trap TRANSLATION\ MISSING
 menutrans Test TRANSLATION\ MISSING
-menutrans existence TRANSLATION\ MISSING
-menutrans existence\ -\ file TRANSLATION\ MISSING
-menutrans existence\ -\ file\ (not\ empty) TRANSLATION\ MISSING
-menutrans existence\ -\ directory TRANSLATION\ MISSING
-menutrans existence\ -\ executable TRANSLATION\ MISSING
-menutrans existence\ -\ readable TRANSLATION\ MISSING
-menutrans existence\ -\ writable TRANSLATION\ MISSING
+menutrans Existence TRANSLATION\ MISSING
+menutrans Existence\ -\ file TRANSLATION\ MISSING
+menutrans Existence\ -\ file\ (not\ empty) TRANSLATION\ MISSING
+menutrans Existence\ -\ directory TRANSLATION\ MISSING
+menutrans Existence\ -\ executable TRANSLATION\ MISSING
+menutrans Existence\ -\ readable TRANSLATION\ MISSING
+menutrans Existence\ -\ writable TRANSLATION\ MISSING
 menutrans String\ is\ empty TRANSLATION\ MISSING
 menutrans String\ is\ not\ empty TRANSLATION\ MISSING
-menutrans Strings\ is\ equal TRANSLATION\ MISSING
-menutrans Strings\ is\ not\ equal TRANSLATION\ MISSING
-menutrans Values\ is\ greater\ than TRANSLATION\ MISSING
-menutrans Values\ is\ greater\ equal TRANSLATION\ MISSING
-menutrans Values\ is\ equal TRANSLATION\ MISSING
-menutrans Values\ is\ not\ equal TRANSLATION\ MISSING
-menutrans Values\ is\ less\ than TRANSLATION\ MISSING
-menutrans Values\ is\ less\ equal TRANSLATION\ MISSING
+menutrans Strings\ are\ equal TRANSLATION\ MISSING
+menutrans Strings\ are\ not\ equal TRANSLATION\ MISSING
+menutrans Value\ is\ greater\ than TRANSLATION\ MISSING
+menutrans Value\ is\ greater\ equal TRANSLATION\ MISSING
+menutrans Values\ are\ equal TRANSLATION\ MISSING
+menutrans Values\ are\ not\ equal TRANSLATION\ MISSING
+menutrans Value\ is\ less\ than TRANSLATION\ MISSING
+menutrans Value\ is\ less\ equal TRANSLATION\ MISSING
 menutrans ParmSub TRANSLATION\ MISSING
 menutrans Substitute\ word\ if\ parm\ not\ set TRANSLATION\ MISSING
 menutrans Set\ parm\ to\ word\ if\ not\ set TRANSLATION\ MISSING
@@ -1182,11 +1183,11 @@ menutrans umask TRANSLATION\ MISSING
 menutrans wait TRANSLATION\ MISSING
 menutrans Set TRANSLATION\ MISSING
 menutrans unset TRANSLATION\ MISSING
-menutrans mark\ modified\ or\ modified\ variables TRANSLATION\ MISSING
-menutrans exit\ when\ command\ returns\ non-zero\ exit\ code TRANSLATION\ MISSING
-menutrans Disable\ file\ name\ generation TRANSLATION\ MISSING
-menutrans remember\ function\ commands TRANSLATION\ MISSING
-menutrans All\ keyword\ arguments\ are\ placed\ in\ the\ environment TRANSLATION\ MISSING
+menutrans Mark\ created\ or\ modified\ variables\ for\ export TRANSLATION\ MISSING
+menutrans Exit\ when\ command\ returns\ non-zero\ status TRANSLATION\ MISSING
+menutrans Disable\ file\ name\ expansion TRANSLATION\ MISSING
+menutrans Locate\ and\ remember\ commands\ when\ being\ looked\ up TRANSLATION\ MISSING
+menutrans All\ assignment\ statements\ are\ placed\ in\ the\ environment\ for\ a\ command TRANSLATION\ MISSING
 menutrans Read\ commands\ but\ do\ not\ execute\ them TRANSLATION\ MISSING
 menutrans Exit\ after\ reading\ and\ executing\ one\ command TRANSLATION\ MISSING
 menutrans Treat\ unset\ variables\ as\ an\ error\ when\ substituting TRANSLATION\ MISSING
@@ -1199,6 +1200,7 @@ menutrans Print\ commands\ and\ their\ arguments\ as\ they\ are\ executed TRANSL
 " From termdebug.vim
 menutrans Set\ breakpoint TRANSLATION\ MISSING
 menutrans Clear\ breakpoint TRANSLATION\ MISSING
+menutrans Run\ until TRANSLATION\ MISSING
 menutrans Evaluate TRANSLATION\ MISSING
 menutrans WinBar TRANSLATION\ MISSING
 menutrans Step TRANSLATION\ MISSING
